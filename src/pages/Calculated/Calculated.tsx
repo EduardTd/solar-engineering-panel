@@ -1,7 +1,10 @@
 import React, { FunctionComponent } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Calculated: FunctionComponent = () => {
-    return <h2>Calculated</h2>;
+    const { t } = useTranslation();
+
+    return <h2>{t('Calculated')}</h2>;
 };
 
 export default Calculated;

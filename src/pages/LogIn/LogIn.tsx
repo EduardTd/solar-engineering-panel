@@ -1,7 +1,10 @@
 import React, { FunctionComponent } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const LogIn: FunctionComponent = () => {
-    return <h2>Log in</h2>;
+    const { t } = useTranslation();
+
+    return <h2>{t('Log in')}</h2>;
 };
 
 export default LogIn;

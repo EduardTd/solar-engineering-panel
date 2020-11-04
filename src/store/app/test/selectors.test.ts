@@ -1,4 +1,4 @@
-import { getToken } from '../selectors';
+import { getLocale, getToken } from '../selectors';
 import { initialState } from '../reducer';
 
 const state = {
@@ -6,6 +6,9 @@ const state = {
 };
 
 describe('App Selectors', () => {
+    it('gets the locale', () => {
+        expect(getLocale(state)).toMatch('en_US');
+    });
     it('gets the token', () => {
         expect(getToken(state)).toMatch('');
     });
