@@ -1,32 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
 import { Provider } from 'react-redux';
-
-import './App.scss';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Calculated from './pages/Calculated';
+import LogIn from './pages/LogIn';
+import Summary from './pages/Summary';
+import PlantsAndElectrical from './pages/PlantsAndElectrical';
+import Meteo from './pages/Meteo';
+import Calculations from './pages/Calculations';
 import configureStore from './store';
+import routes from './routes/routes';
+import './App.scss';
 
 const store = configureStore();
 
 function App() {
     return (
         <Provider store={store}>
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
+            <BrowserRouter>
+                <Switch>
+                    <Route exact path={routes.logIn} component={LogIn} />
+                    <Route exact path={routes.summary} component={Summary} />
+                    <Route
+                        exact
+                        path={routes.plantsAndElectrical}
+                        component={PlantsAndElectrical}
+                    />
+                    <Route exact path={routes.meteo} component={Meteo} />
+                    <Route exact path={routes.calculations} component={Calculations} />
+                    <Route exact path={routes.calculated} component={Calculated} />
 
-                    <p>
-                        Edit <code>src/App.tsx</code> and save to reload.
-                    </p>
-                    <a
-                        className="App-link"
-                        href="https://reactjs.org"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Learn React
-                    </a>
-                </header>
-            </div>
+                    <Route render={() => '404!'} />
+                </Switch>
+            </BrowserRouter>
         </Provider>
     );
 }
