@@ -1,0 +1,66 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    @include font-size($font-size__base);
+    color: $text_color;
+    font-family: $font-family__base;
+    font-style: $font-style__base;
+    font-weight: $font-weight__regular;
+    line-height: 1.5;
+}
+
+a,
+.link {
+    @include font-size($link-font-size);
+    color: $link-color;
+    text-decoration: $link-text-decoration;
+
+    &:hover {
+        color: $link-hover-color;
+    }
+}
+
+.meta-text {
+    @include font-size(12);
+    color: $color-gray-silver;
+}
+
+p {
+    padding-bottom: 24px;
+}
+
+h2 {
+    padding-bottom: 16px;
+}
+
+h3 {
+    @include font-size(18);
+}
+
+h1, h2, h3, h4, h5 {
+    color: $heading-color__base;
+    font-family: $font-family__heading;
+    font-weight: $font-weight__bold;
+}
+
+/*
+  Mobile
+  _____________________________________________
+*/
+@include media-width('max', $screen_m) {
+    h2 {
+        @include font-size(21);
+    }
+}
+
+/*
+  Desktop
+  _____________________________________________
+*/
+@include media-width('min', $screen_m) {
+    h2 {
+        @include font-size(24);
+    }
+}

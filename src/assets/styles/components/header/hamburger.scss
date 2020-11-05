@@ -1,0 +1,22 @@
+/*
+  Mobile
+  _____________________________________________
+*/
+@include media-width('max', $screen_l) {
+    .hamburger {
+        align-items: center;
+        display: inline-flex;
+        margin-right: 12px;
+        padding: 8px 8px 8px 0;
+    }
+}
+
+/*
+  Desktop
+  _____________________________________________
+*/
+@include media-width('min', $screen_l) {
+    .hamburger {
+        display: none;
+    }
+}

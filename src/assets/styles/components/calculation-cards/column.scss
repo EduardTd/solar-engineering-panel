@@ -1,0 +1,26 @@
+.card-column {
+    background: $color-white-snow;
+    border: 1px solid $color-gray-gainsboro;
+    border-radius: 4px;
+    box-sizing: border-box;
+    flex-grow: 1;
+    min-width: 261px;
+    padding: 16px 8px;
+    width: calc(100% / 3);
+
+    &:not(:last-child) {
+        margin-right: 8px;
+    }
+}
+
+/*
+  Desktop
+  _____________________________________________
+*/
+@include media-width('min', $screen_m) {
+    .card-column {
+        max-height: 50vh;
+        min-width: 200px;
+        overflow: auto;
+    }
+}

@@ -1,0 +1,41 @@
+@import 'responsive';
+@import 'typography';
+@import 'checkbox';
+
+@mixin visually-hidden() {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+@mixin visually-hidden-reset() {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+@mixin absolute-center($_axis: false) {
+    @if $_axis == 'y' {
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    } @else if $_axis == 'x' {
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+    } @else {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    position: absolute;
+}

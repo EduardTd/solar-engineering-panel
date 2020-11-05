@@ -1,0 +1,13 @@
+@mixin media-width($extremum: false, $break: 0) {
+    @if $extremum == 'max' {
+        @media (max-width: $break - 1) {
+            @content;
+        }
+    } @else if $extremum == 'min' {
+        @media (min-width: $break) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}

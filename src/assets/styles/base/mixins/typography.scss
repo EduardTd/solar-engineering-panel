@@ -1,0 +1,3 @@
+@mixin font-size($_size) {
+    font-size: $_size * 0.1 + rem;
+}

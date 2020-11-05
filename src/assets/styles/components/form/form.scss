@@ -1,0 +1,57 @@
+.label {
+    @include font-size(12);
+    font-weight: $font-weight__heavier;
+}
+
+.actions-toolbar {
+    display: flex;
+    margin-top: 16px;
+
+    > * {
+        flex-grow: 1;
+    }
+}
+
+/*
+  Mobile
+  _____________________________________________
+*/
+@include media-width('max', $screen_m) {
+    .actions-toolbar {
+        flex-wrap: wrap;
+
+        > * {
+            width: 100%;
+
+            + * {
+                margin-top: 16px;
+            }
+        }
+    }
+}
+
+/*
+  Desktop
+  _____________________________________________
+*/
+@include media-width('min', $screen_m) {
+    .actions-toolbar {
+        > * {
+            + * {
+                margin-left: 16px;
+            }
+        }
+    }
+
+    .field-group {
+        display: flex;
+
+        > * {
+            flex-grow: 1;
+
+            + * {
+                margin-left: 24px;
+            }
+        }
+    }
+}

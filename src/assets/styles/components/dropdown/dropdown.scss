@@ -1,0 +1,41 @@
+.dropdow-title {
+    @include font-size(12);
+    color: $color-gray;
+    padding: 8px 8px 8px 19px;
+    position: relative;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:before {
+        border-bottom: 1px solid $color-gray;
+        border-right: 1px solid $color-gray;
+        content: '';
+        display: block;
+        height: 8px;
+        left: 1px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-78%) rotate(45deg);
+        transition: all 0.2s linear;
+        width: 8px;
+    }
+
+    .active & {
+        &:before {
+            transform: translateY(-21%) rotate(225deg);
+        }
+    }
+}
+.dropdown-content {
+    @include font-size(12);
+    -webkit-animation: scale-up-ver-top 0.3s cubic-bezier(1, 1, 1, 1) both;
+    animation: scale-up-ver-top 0.3s cubic-bezier(1, 1, 1, 1) both;
+    color: $color-gray;
+    display: none;
+
+    .active & {
+        display: block;
+    }
+}

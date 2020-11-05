@@ -1,39 +1,27 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Calculated from './pages/Calculated';
-import LogIn from './pages/LogIn';
-import Summary from './pages/Summary';
-import PlantsAndElectrical from './pages/PlantsAndElectrical';
-import Meteo from './pages/Meteo';
-import Calculations from './pages/Calculations';
+import { Router } from 'react-router-dom';
 import IntlProvider from './i18n/IntlProvider';
-import routes from './routes/routes';
 import configureStore from './store';
-import './App.scss';
+// import { ModalContextProvider } from './context/ModalContext';
+// import { CardsContextProvider } from './context/CardsContext';
+// import { NoticeContextProvider } from './context/NoticeContext';
+// import { NavigationContextProvider } from './context/NavigationContext';
+// import { withProviders } from './context/withProviders';
+import PagesHandler from './pages/PagesHandler';
+import './assets/styles/styles.scss';
+import history from './store/history';
 
 const store = configureStore();
 
 function App() {
     return (
         <Provider store={store}>
-            <BrowserRouter>
+            <Router history={history}>
                 <IntlProvider>
-                    <Switch>
-                        <Route exact path={routes.logIn} component={LogIn} />
-                        <Route exact path={routes.summary} component={Summary} />
-                        <Route
-                            exact
-                            path={routes.plantsAndElectrical}
-                            component={PlantsAndElectrical}
-                        />
-                        <Route exact path={routes.meteo} component={Meteo} />
-                        <Route exact path={routes.calculations} component={Calculations} />
-                        <Route exact path={routes.calculated} component={Calculated} />
-                        <Route render={() => '404!'} />
-                    </Switch>
+                    <PagesHandler />
                 </IntlProvider>
-            </BrowserRouter>
+            </Router>
         </Provider>
     );
 }

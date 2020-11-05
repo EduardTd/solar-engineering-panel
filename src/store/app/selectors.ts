@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { AppState, Locale } from '../../types/store';
+import { AppState, Locale } from '../../types/storeTypes';
 
 export const app = (state: { app: AppState }): AppState => state.app;
 

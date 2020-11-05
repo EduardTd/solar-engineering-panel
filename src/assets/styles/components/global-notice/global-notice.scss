@@ -1,0 +1,72 @@
+.global-notice {
+    -webkit-animation: scale-up-ver-top 0.3s cubic-bezier(1, 1, 1, 1) both;
+    animation: scale-up-ver-top 0.3s cubic-bezier(1, 1, 1, 1) both;
+    left: 0;
+    min-height: 30px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+    z-index: 10;
+
+    &.hidden {
+        display: none;
+    }
+
+    .container {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    &.error {
+        background-color: lighten($color-red-cardinal, 40%);
+
+        .text {
+            color: $color-red-cardinal;
+        }
+
+        .close-notice svg path {
+            fill: $color-red-cardinal;
+        }
+    }
+
+    &.success {
+        background-color: lighten($color-green-dark_green, 70%);
+
+        .text {
+            color: $color-green-dark_green;
+        }
+
+        .close-notice svg path {
+            fill: $color-green-dark_green;
+        }
+    }
+
+    &.warning {
+        background-color: lighten($color-brown, 60%);
+
+        .text {
+            color: $color-brown;
+        }
+
+        .close-notice svg path {
+            fill: $color-brown;
+        }
+    }
+
+    .close-notice {
+        align-items: center;
+        cursor: pointer;
+        display: inline-flex;
+        margin-left: 16px;
+        padding: 8px;
+    }
+
+    .panel-template & {
+        margin-bottom: 24px;
+        position: static;
+    }
+}

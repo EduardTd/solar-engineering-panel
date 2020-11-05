@@ -22,7 +22,6 @@ module.exports = {
     },
     plugins: ['react', 'jsx-a11y', '@typescript-eslint'],
     rules: {
-        'react-hooks/exhaustive-deps': 'error',
         'no-var': 'error',
         'brace-style': 'error',
         'prefer-template': 'error',
@@ -30,6 +29,12 @@ module.exports = {
         'space-before-blocks': 'error',
         'import/prefer-default-export': 'off',
         'react/prop-types': 0,
+        'jsx-a11y/no-static-element-interactions': 'off',
+        'jsx-a11y/click-events-have-key-events': 'off',
+        'jsx-a11y/label-has-for': 'off',
+        'no-unused-vars': 'off',
+        'jsx-a11y/no-onchange': 'off',
+        'react-hooks/exhaustive-deps': 'off',
     },
     overrides: [
         {

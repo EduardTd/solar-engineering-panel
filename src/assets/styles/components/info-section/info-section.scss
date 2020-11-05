@@ -1,0 +1,14 @@
+.info-section {
+    align-items: center;
+    background-color: $color-blue-alice;
+    border-radius: 4px;
+    color: $color-blue-orient;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+    padding: 16px;
+
+    svg {
+        margin-right: 16px;
+    }
+}
