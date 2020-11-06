@@ -1,4 +1,6 @@
 .form-add-new {
+    height: 100%;
+
     .quick-add {
         margin-bottom: 32px;
 
@@ -71,6 +73,10 @@
                 margin-right: $mobile-layout-space;
                 width: calc(50% - #{$mobile-layout-space});
             }
+        }
+
+        .right-column {
+            margin-top: auto;
         }
 
         .info-block,
