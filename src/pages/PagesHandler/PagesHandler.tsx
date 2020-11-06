@@ -31,7 +31,7 @@ const PagesHandler: FunctionComponent = () => {
         <Switch>
             <Route exact path={routes.logIn} component={LogIn} />
             {hasToken || token ? (
-                <>
+                <Fragment>
                     <Route exact path={routes.summary} component={Summary} />
                     <Route
                         exact
@@ -41,9 +41,8 @@ const PagesHandler: FunctionComponent = () => {
                     <Route exact path={routes.meteo} component={Meteo} />
                     <Route exact path={routes.calculations} component={Calculations} />
                     <Route exact path={routes.calculated} component={Calculated} />
-
                     <Route render={() => '404!'} />
-                </>
+                </Fragment>
             ) : (
                 <Route path="/">
                     <Redirect to={routes.logIn} />
