@@ -6,7 +6,7 @@ import configureStore from './store';
 import PagesHandler from './pages/PagesHandler';
 import './assets/styles/styles.scss';
 import history from './store/history';
-import HelmetProvider from 'react-helmet';
+import { HelmetProvider } from 'react-helmet-async';
 import PageHead from './components/PageHead';
 
 const store = configureStore();
