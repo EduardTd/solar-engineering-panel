@@ -44,17 +44,13 @@
 
     // Mobile
     @include media-width('max', $screen_l) {
-        .container {
-            padding-left: $mobile-layout-space;
-            padding-right: $mobile-layout-space;
-        }
+        padding-left: $mobile-layout-space;
+        padding-right: $mobile-layout-space;
     }
 
     // Desktop
     @include media-width('min', $screen_l) {
-        .container {
-            padding-left: $desktop-layout-space;
-            padding-right: $desktop-layout-space;
-        }
+        padding-left: $desktop-layout-space;
+        padding-right: $desktop-layout-space;
     }
 }

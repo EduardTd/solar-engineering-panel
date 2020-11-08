@@ -2,34 +2,35 @@ import React, { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import routes from '../../../routes/routes';
+import scss from '../styles/summary-table.module.scss';
 
 const ProjectTable: FunctionComponent = () => {
     const { t } = useTranslation();
 
     return (
-        <div className="summary-table">
-            <div className="table-title">
+        <div className={scss.summaryTable}>
+            <div className={scss.tableTitle}>
                 <span>{t('Project parameters')}</span>
             </div>
-            <div className="table-body">
-                <div className="body-head">
-                    <span className="head-title">{t('Meteo')}</span>
-                    <Link to={routes.meteo} className="head-button">
+            <div className={scss.tableBody}>
+                <div className={scss.bodyHead}>
+                    <span className={scss.headTitle}>{t('Meteo')}</span>
+                    <Link to={routes.meteo} className={scss.headButton}>
                         {t('Go to Meteo')}
                     </Link>
                 </div>
-                <div className="body-items">
-                    <div className="body-item">
-                        <span className="item-title">{t('Location')}</span>
-                        <span className="value">{t('Kaunas, Lithuania')}</span>
+                <div className={scss.bodyItems}>
+                    <div className={scss.bodyItem}>
+                        <span className={scss.itemTitle}>{t('Location')}</span>
+                        <span className={scss.value}>{t('Kaunas, Lithuania')}</span>
                     </div>
-                    <div className="body-item">
-                        <span className="item-title">{t('Coordinates')}</span>
-                        <span className="value">54.8985° N, 23.9036° E</span>
+                    <div className={scss.bodyItem}>
+                        <span className={scss.itemTitle}>{t('Coordinates')}</span>
+                        <span className={scss.value}>54.8985° N, 23.9036° E</span>
                     </div>
-                    <div className="body-item">
-                        <span className="item-title">{t('Meteo data source')}</span>
-                        <span className="value">{t('PVGIS')}</span>
+                    <div className={scss.bodyItem}>
+                        <span className={scss.itemTitle}>{t('Meteo data source')}</span>
+                        <span className={scss.value}>{t('PVGIS')}</span>
                     </div>
                 </div>
             </div>
