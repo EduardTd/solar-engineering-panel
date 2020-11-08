@@ -1,0 +1,10 @@
+@import '../../../../assets/global/global';
+
+.label {
+    @include font-size(16);
+    font-weight: $font-weight__regular;
+}
+
+.custom-checkbox {
+    @include input-checkbox();
+}

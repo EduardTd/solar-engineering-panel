@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { ErrorMessage, Field, FormikErrors, FormikTouched } from 'formik';
+import scss from './styles/checkbox.module.scss';
 
 type TTextField = {
     errors: FormikErrors<any>;
@@ -27,14 +28,14 @@ const Checkbox: FunctionComponent<TTextField> = ({
                 type="checkbox"
                 name={checkboxName}
                 id={checkboxId}
-                className={`custom-checkbox ${
+                className={`${scss.customCheckbox} ${
                     errors.acceptTerms && touched.acceptTerms ? ' is-invalid' : ''
                 }`}
             />
-            <label className="label" htmlFor={checkboxId}>
+            <label className={scss.label} htmlFor={checkboxId}>
                 {label}
             </label>
-            <span className="error-message">
+            <span>
                 <ErrorMessage name={checkboxName} />
             </span>
         </div>
