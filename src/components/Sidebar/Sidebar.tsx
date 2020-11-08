@@ -1,63 +1,70 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import ToggleNavigation from '../ToggleNavigation';
+import { NavigationContext } from '../../context/NavigationContext';
 import routes from '../../routes/routes';
+import scss from './styles/sidebar.module.scss';
 
 const Sidebar: FunctionComponent = () => {
     const { t } = useTranslation();
+    const { navState } = useContext(NavigationContext);
     const currentPath = useLocation().pathname;
 
     return (
-        <div className="sidebar">
-            <ToggleNavigation classes="overlay" />
-            <ul className="navigation">
-                <li className="nav-item">
+        <div className={`${scss.sidebar} ${navState ? scss.opened : ''}`}>
+            <ToggleNavigation classes={scss.overlay} />
+            <ul className={scss.navigation}>
+                <li className={scss.navItem}>
                     <Link
                         to={routes.summary}
-                        className={`text-block ${currentPath === routes.summary ? 'active' : ''}`}
+                        className={`${scss.textBlock} ${
+                            currentPath === routes.summary ? scss.active : ''
+                        }`}
                     >
-                        <span className="text">{t('Summary')}</span>
+                        <span className={scss.navItemTitle}>{t('Summary')}</span>
                     </Link>
                 </li>
-                <li className="nav-item">
-                    <span className="meta-text">{t('Project parameters')}</span>
+                <li className={scss.navItem}>
+                    <span className={scss.metaText}>{t('Project parameters')}</span>
                     <Link
                         to={routes.meteo}
-                        className={`text-block ${currentPath === routes.meteo ? 'active' : ''}`}
+                        className={`${scss.textBlock} ${
+                            currentPath === routes.meteo ? scss.active : ''
+                        }`}
                     >
-                        <span className="text">{t('Meteo')}</span>
+                        <span className={scss.navItemTitle}>{t('Meteo')}</span>
                     </Link>
                 </li>
-                <li className="nav-item">
-                    <span className="meta-text">{t('Simulation parameters')}</span>
+                <li className={scss.navItem}>
+                    <span className={scss.metaText}>{t('Simulation parameters')}</span>
                     <Link
                         to={routes.plantsAndElectrical}
-                        className={`text-block ${
-                            currentPath === routes.plantsAndElectrical ? 'active' : ''
+                        className={`${scss.textBlock} ${
+                            currentPath === routes.plantsAndElectrical ? scss.active : ''
                         }`}
                     >
-                        <span className="text">{t('Plants & electrical')}</span>
+                        <span className={scss.navItemTitle}>{t('Plants & electrical')}</span>
                     </Link>
                 </li>
-                <li className="nav-item">
-                    <span className="meta-text">{t('Calculations')}</span>
+                <li className={scss.navItem}>
+                    <span className={scss.metaText}>{t('Calculations')}</span>
                     <Link
                         to={routes.calculations}
-                        className={`text-block ${
-                            currentPath === routes.calculations ? 'active' : ''
+                        className={`${scss.textBlock} ${
+                            currentPath === routes.calculations ? scss.active : ''
                         }`}
                     >
-                        <span className="text">{t('Ongoing calculations')}</span>
+                        <span className={scss.navItemTitle}>{t('Ongoing calculations')}</span>
                     </Link>
                     <Link
                         to={routes.calculated}
-                        className={`text-block ${
-                            currentPath === routes.calculated ? 'active' : ''
+                        className={`${scss.textBlock} ${
+                            currentPath === routes.calculated ? scss.active : ''
                         }`}
                     >
-                        <span className="text">{t('Calculated')}</span>
-                        <span className="number">22</span>
+                        <span className={scss.navItemTitle}>{t('Calculated')}</span>
+                        <span className={scss.number}>22</span>
                     </Link>
                 </li>
             </ul>

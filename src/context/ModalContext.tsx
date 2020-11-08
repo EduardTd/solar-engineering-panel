@@ -21,7 +21,7 @@ export const ModalContext = createContext<IModalValues>(initialModalValues);
 export const ModalContextProvider = ({ children }: { children: React.ReactNode }) => {
     const [isOpen, setIsOpen] = useState(initialModalValues.isOpen);
     const [modalType, setModalType] = useState(initialModalValues.modalType);
-    const openedClass = 'modal-opened';
+    const openedClass = 'overflow-hidden';
 
     const openModal = useCallback((type: ECardsColumnType) => {
         setModalType(type);

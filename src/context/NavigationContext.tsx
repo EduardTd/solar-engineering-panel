@@ -21,15 +21,16 @@ type TProvider = {
 export const NavigationContextProvider: FunctionComponent<TProvider> = ({ children }) => {
     const [navState, setNavState] = useState(initialNavigationValues.navState);
     const { listen } = useHistory();
-    const openedClass = 'nav-opened';
+    const openedClass = 'overflow-hidden';
 
     listen(() => {
+        setNavState(!navState);
         removeBodyClass(openedClass);
     });
 
     const toggleNavigation = useCallback(() => {
-        toggleBodyClass(openedClass);
         setNavState(!navState);
+        toggleBodyClass(openedClass);
     }, [navState]);
 
     return (

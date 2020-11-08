@@ -7,6 +7,10 @@
         display: inline-flex;
         margin-right: 12px;
         padding: 8px 8px 8px 0;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
 

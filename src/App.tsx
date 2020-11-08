@@ -5,6 +5,7 @@ import IntlProvider from './i18n/IntlProvider';
 import configureStore from './store';
 import PagesHandler from './pages/PagesHandler';
 import './assets/styles/styles.scss';
+import './assets/global/classes/classes.scss';
 import history from './store/history';
 import { HelmetProvider } from 'react-helmet-async';
 import PageHead from './components/PageHead';
