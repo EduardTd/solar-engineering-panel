@@ -15,7 +15,7 @@ const PanelTemplate: FunctionComponent<TPanelTemplate> = ({ pageClass, children 
         <Fragment>
             <Header />
             <NewCardModal />
-            <main className={`${scss.panelTemplate} ${pageClass ? pageClass : ''}`}>
+            <main className={`panel-template ${scss.panelTemplate} ${pageClass ? pageClass : ''}`}>
                 <Sidebar />
                 <div className={scss.panelContent}>
                     <GlobalNotice />

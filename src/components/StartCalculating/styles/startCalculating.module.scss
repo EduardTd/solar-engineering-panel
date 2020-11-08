@@ -1,0 +1,123 @@
+@import '../../../assets/global/global';
+
+.startCalculating {
+    background: $color-white;
+    border: 1px solid $color-gray-gainsboro;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.blockTitle {
+    color: $color-black;
+    display: block;
+    font-weight: $font-weight__heavier;
+}
+
+.calculationInfo {
+    color: $color-gray-silver_dark;
+}
+
+.toolbar {
+    display: inline-flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+
+    button {
+        + button {
+            margin-top: 12px;
+        }
+    }
+}
+
+.infoBlock {
+    flex-grow: 1;
+    margin-right: auto;
+    min-width: calc(100% - 232px);
+
+    h2 {
+        padding-bottom: 4px;
+    }
+}
+
+.buttonWhite {
+    @include buttonWhite()
+}
+
+.buttonLarge {
+    @include buttonLarge()
+}
+
+.buttonGreen {
+    @include buttonGreen()
+}
+
+//
+//  Mobile
+//  _____________________________________________
+@include media-width('max', $screen_m) {
+    .startCalculating {
+        margin-bottom: 24px;
+        padding: 0 0 16px 16px;
+    }
+
+    .infoBlock,
+    .toolbar {
+        margin-top: 16px;
+        padding-right: 16px;
+    }
+
+    .blockTitle {
+        @include font-size(14);
+        margin-bottom: 16px;
+    }
+
+    .calculationInfo {
+        @include font-size(10);
+    }
+}
+
+@include media-width('max', $screen_xs) {
+    .calculationInfo {
+        @include font-size(10);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .block:first-child {
+        padding-right: 16px;
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+@include media-width('min', $screen_m) {
+    .startCalculating {
+        margin-bottom: 40px;
+        padding: 0 0 24px 24px;
+    }
+
+    .infoBlock,
+    .toolbar {
+        margin-top: 24px;
+        padding-right: 24px;
+    }
+
+    .blockTitle {
+        @include font-size(16);
+        margin-bottom: 24px;
+    }
+
+    .calculationInfo {
+        @include font-size(12);
+    }
+}
+
+@include media-width('min', $screen_xs) {
+    .block {
+        padding-right: 16px;
+    }
+}
