@@ -1,0 +1,11 @@
+@import '../../../assets/global/global';
+
+.actionsToolbar {
+    @include actionsToolbar();
+    margin-top: 40px;
+}
+
+.buttonGreen {
+    @include buttonGreen();
+}
+

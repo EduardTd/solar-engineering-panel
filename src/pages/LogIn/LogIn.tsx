@@ -6,6 +6,7 @@ import { ESessionStorageKey } from '../../types/enums';
 import routes from '../../routes/routes';
 import GlobalNotice from '../../components/GlobalNotice';
 import LogInForm from '../../components/LogInForm';
+import scss from './styles/log-in-page.module.scss';
 
 const LogIn: FunctionComponent = () => {
     const { t } = useTranslation();
@@ -21,19 +22,19 @@ const LogIn: FunctionComponent = () => {
     }, []);
 
     return loaded ? (
-        <div className="log-in-page">
+        <div className={scss.logInPage}>
             <GlobalNotice />
-            <div className="log-in-block">
-                <div className="head-block">
-                    <Logo className="logo" />
+            <div className={scss.logInBlock}>
+                <div className={scss.headBlock}>
+                    <Logo className={scss.headLogo} />
                     <h2>Log in</h2>
-                    <span className="text">{t('Enter your details below')}</span>
+                    <span className={scss.headText}>{t('Enter your details below')}</span>
                 </div>
                 <LogInForm />
-                <div className="sign-up-text">
-                    <span className="text">{t('Don’t have an account?')} </span>
-                    <a href="/" className="link">
-                        Sign Up
+                <div className={scss.signUp}>
+                    <span className={scss.signUpText}>{t('Don’t have an account?')} </span>
+                    <a href="/" className={scss.signUpLink}>
+                        {t('Sign Up')}
                     </a>
                 </div>
             </div>

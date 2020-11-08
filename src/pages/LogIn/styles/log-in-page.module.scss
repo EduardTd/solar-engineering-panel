@@ -1,0 +1,91 @@
+@import '../../../assets/global/global';
+
+.logInBlock {
+    text-align: center;
+}
+
+.signUpText,
+.signUpLink {
+    @include font-size(16);
+    font-weight: $font-weight__heavier;
+}
+
+.signUpLink {
+    text-decoration: underline;
+}
+
+.headLogo {
+    margin-bottom: 24px;
+}
+
+//
+//  Mobile
+//  _____________________________________________
+@include media-width('max', $screen_xs) {
+    .logInPage {
+        align-items: center;
+        display: flex;
+        flex-grow: 1;
+    }
+
+    .logInBlock {
+        flex-grow: 1;
+        padding: 38px 30px;
+        width: 100%;
+    }
+
+    .signUp {
+        margin-top: 64px;
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+@include media-width('min', $screen_xs) {
+    .logInPage {
+        align-items: center;
+        background-color: $color-gray-nero;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: center;
+    }
+
+    .logInBlock {
+        background-color: $color-white;
+        border: 1px solid $color-gray-gainsboro;
+        border-radius: 8px;
+        box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.4);
+        margin: $desktop-layout-space $desktop-layout-space 100px;
+        padding: 30px;
+        position: relative;
+        width: 364px;
+    }
+
+    .signUp {
+        bottom: -40px;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, 100%);
+        width: 100%;
+    }
+
+    .signUpText,
+    .signUpLink:not(:hover) {
+        color: $color-white;
+    }
+
+    .headBlock {
+        margin-bottom: 50px;
+    }
+
+    .headLogo {
+        margin-top: 8px;
+    }
+
+    .headText {
+        @include font-size(16);
+        color: $color-gray-silver;
+    }
+}

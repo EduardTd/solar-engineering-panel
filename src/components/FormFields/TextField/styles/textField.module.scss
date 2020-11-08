@@ -1,0 +1,71 @@
+@import '../../../../assets/global/global.scss';
+
+.textField {
+    margin-bottom: 24px;
+    position: relative;
+    text-align: left;
+
+    &.error {
+        .textInput {
+            border-color: $form-error-color;
+            color: $form-error-color;
+        }
+    }
+
+    &.disabled {
+        .label {
+            color: $color-gray;
+        }
+
+        .textInput {
+            background-color: $color-gray-whisper;
+            color: $color-gray-silver;
+        }
+    }
+}
+
+.fieldWrapper {
+    position: relative;
+}
+
+.label {
+    @include label();
+}
+
+.textInput {
+    @include font-size(14);
+    border: 1px solid $color-gray-silver;
+    border-radius: 3px;
+    color: $color-black;
+    font-family: $font-family__base;
+    padding: 7px 8px;
+    width: 100%;
+
+    &:active,
+    &:focus {
+        border-color: $color-green-elm;
+    }
+}
+
+.unit {
+    color: $color-gray-silver;
+    display: block;
+    line-height: 1;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    + textInput {
+        padding-right: 40px;
+    }
+}
+
+.errorMessage {
+    @include font-size(10);
+    bottom: 0;
+    color: $form-error-color;
+    left: 0;
+    position: absolute;
+    transform: translateY(100%);
+}

@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { ErrorMessage, Field, FormikErrors, FormikTouched } from 'formik';
+import scss from './styles/textField.module.scss';
 
 type TTextField = {
     errors: FormikErrors<any>;
@@ -8,7 +9,6 @@ type TTextField = {
     label: string;
     fieldId: string;
     fieldName: string;
-    component?: string;
     type?: string;
     unit?: string;
     disabled?: boolean;
@@ -21,36 +21,32 @@ const TextField: FunctionComponent<TTextField> = ({
     label,
     fieldId,
     fieldName,
-    component,
     type,
     unit,
     disabled,
 }) => {
-    const controlType = component ? component : 'input';
-    const errorClass = `${errors[fieldName] && touched[fieldName] ? 'error' : ''}`;
-    const disabledClass = `${disabled ? 'disabled' : ''}`;
-    const textFieldClass = `text-field ${errorClass} ${disabledClass}`;
+    const errorClass = errors[fieldName] && touched[fieldName] ? scss.error : '';
+    const disabledClass = disabled ? scss.disabled : '';
+    const textFieldClass = `${scss.textField} ${errorClass} ${disabledClass}`;
 
     return (
         <div className={textFieldClass}>
-            <div className={`control ${controlType}`}>
-                <label className="label" htmlFor={fieldId}>
-                    {label}
-                </label>
-                <div className="field-wrapper">
-                    {unit ? <span className="unit">{unit}</span> : null}
-                    <Field
-                        className="input-text"
-                        placeholder={placeholder ? placeholder : ''}
-                        id={fieldId}
-                        name={fieldName}
-                        component={component}
-                        type={type}
-                        disabled={!!disabled}
-                    />
-                </div>
-                <ErrorMessage component="span" className="error-message" name={fieldName} />
+            <label className={scss.label} htmlFor={fieldId}>
+                {label}
+            </label>
+            <div className={scss.fieldWrapper}>
+                {unit ? <span className={scss.unit}>{unit}</span> : null}
+                <Field
+                    className={scss.textInput}
+                    placeholder={placeholder ? placeholder : ''}
+                    id={fieldId}
+                    name={fieldName}
+                    component="input"
+                    type={type}
+                    disabled={!!disabled}
+                />
             </div>
+            <ErrorMessage component="span" className={scss.errorMessage} name={fieldName} />
         </div>
     );
 };

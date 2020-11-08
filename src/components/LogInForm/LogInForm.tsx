@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import useLogIn from './useLogIn';
 import logInSchema from './logInSchema';
 import TextField from '../FormFields/TextField';
+import scss from './styles/log-in-form.module.scss';
 
 const LogInForm: FunctionComponent = () => {
     const { t } = useTranslation();
@@ -21,7 +22,7 @@ const LogInForm: FunctionComponent = () => {
             onSubmit={onSubmit}
         >
             {({ errors, touched }) => (
-                <Form className="form">
+                <Form>
                     <TextField
                         errors={errors}
                         touched={touched}
@@ -37,8 +38,8 @@ const LogInForm: FunctionComponent = () => {
                         fieldName="password"
                         type="password"
                     />
-                    <div className="actions-toolbar">
-                        <button className="button-green" type="submit">
+                    <div className={scss.actionsToolbar}>
+                        <button className={scss.buttonGreen} type="submit">
                             {t('Log in')}
                         </button>
                     </div>
