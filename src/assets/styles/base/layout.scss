@@ -13,13 +13,6 @@ body {
     min-height: 100vh;
 }
 
-.container {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: $max-layout-width;
-}
-
 .main-content {
     padding-bottom: 40px;
 }
@@ -35,11 +28,6 @@ body {
 }
 
 @include media-width('max', $screen_l) {
-    .container {
-        padding-left: $mobile-layout-space;
-        padding-right: $mobile-layout-space;
-    }
-
     .mobile-hidden-l {
         @include visually-hidden();
     }
@@ -63,11 +51,6 @@ body {
 }
 
 @include media-width('min', $screen_l) {
-    .container {
-        padding-left: $desktop-layout-space;
-        padding-right: $desktop-layout-space;
-    }
-
     .desktop-hidden-l {
         @include visually-hidden();
     }

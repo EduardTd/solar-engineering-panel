@@ -1,4 +1,6 @@
-.panel-template {
+@import '../../../assets/global/global';
+
+.panelTemplate {
     display: flex;
     flex-grow: 1;
     margin-left: auto;
@@ -7,37 +9,36 @@
     width: 100%;
 }
 
-.panel-content {
+.panelContent {
+    @include container();
     flex-grow: 1;
 }
 
-/*
-  Mobile
-  _____________________________________________
-*/
+//
+//  Mobile
+//  _____________________________________________
 @include media-width('max', $screen_l) {
-    .panel-content {
+    .panelContent {
         margin-bottom: 40px;
         margin-top: 32px;
     }
 
-    .panel-title {
+    .panelTitle {
         margin-bottom: 8px;
     }
 }
 
-/*
-  Desktop
-  _____________________________________________
-*/
+//
+//  Desktop
+//  _____________________________________________
 @include media-width('min', $screen_l) {
-    .panel-content {
+    .panelContent {
         margin-bottom: 48px;
         margin-top: 64px;
         max-width: 800px;
     }
 
-    .panel-title {
+    .panelTitle {
         margin-bottom: 32px;
     }
 }

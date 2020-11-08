@@ -6,7 +6,7 @@ const Calculations: FunctionComponent = () => {
     const { t } = useTranslation();
 
     return (
-        <PanelTemplate pageClass="calculations-page">
+        <PanelTemplate>
             <h2>{t('Ongoing calculations')}</h2>
         </PanelTemplate>
     );

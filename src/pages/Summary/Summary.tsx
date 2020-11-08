@@ -1,11 +1,14 @@
 import React, { FunctionComponent } from 'react';
 import PanelTemplate from '../../components/PanelTemplate';
 import { CalculationsTable, ProjectTable, SimulationTable } from '../../components/SummaryTables';
+import { useTranslation } from 'react-i18next';
 
 const Summary: FunctionComponent = () => {
+    const { t } = useTranslation();
+
     return (
-        <PanelTemplate pageClass="summary-page">
-            <h2 className="panel-title">Summary</h2>
+        <PanelTemplate>
+            <h2>{t('Summary')}</h2>
             <ProjectTable />
             <SimulationTable />
             <CalculationsTable />

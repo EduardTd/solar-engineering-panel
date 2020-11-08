@@ -9,7 +9,7 @@ const PlantsAndElectrical: FunctionComponent = () => {
     const { t } = useTranslation();
 
     return (
-        <PanelTemplate pageClass="plants-page">
+        <PanelTemplate>
             <h2>{t('Plants & electrical')}</h2>
             <StartCalculating />
             <InfoSection />

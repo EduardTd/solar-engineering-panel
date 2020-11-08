@@ -1,7 +1,6 @@
-/*
-  Mobile
-  _____________________________________________
-*/
+//
+//  Mobile
+//  _____________________________________________
 @include media-width('max', $screen_l) {
     .hamburger {
         align-items: center;
@@ -11,10 +10,9 @@
     }
 }
 
-/*
-  Desktop
-  _____________________________________________
-*/
+//
+//  Desktop
+//  _____________________________________________
 @include media-width('min', $screen_l) {
     .hamburger {
         display: none;

@@ -6,7 +6,7 @@ const Meteo: FunctionComponent = () => {
     const { t } = useTranslation();
 
     return (
-        <PanelTemplate pageClass="meteo-page">
+        <PanelTemplate>
             <h2>{t('Meteo')}</h2>
         </PanelTemplate>
     );

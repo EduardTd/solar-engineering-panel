@@ -9,6 +9,7 @@ import ToggleNavigation from '../ToggleNavigation';
 import { ESessionStorageKey } from '../../types/enums';
 import { setUserToken } from '../../store/app/actions';
 import routes from '../../routes/routes';
+import scss from './styles/header.module.scss';
 
 const Header: FunctionComponent = () => {
     const { t } = useTranslation();
@@ -22,21 +23,21 @@ const Header: FunctionComponent = () => {
     }, []);
 
     return (
-        <header className="header">
-            <div className="container">
-                <ToggleNavigation classes="hamburger">
+        <header className={scss.header}>
+            <div className={scss.container}>
+                <ToggleNavigation classes={scss.hamburger}>
                     <HamburgerIcon />
                 </ToggleNavigation>
-                <Link className="home-link" to={routes.summary} title={t('Back to projects')}>
+                <Link className={scss.homeLink} to={routes.summary} title={t('Back to projects')}>
                     <HomeIcon />
-                    <span className="text">{t('Back to projects')}</span>
+                    <span className={scss.homeLinkText}>{t('Back to projects')}</span>
                 </Link>
-                <div className="header-title">
+                <div className={scss.headerTitle}>
                     <span>{t('Kaunas park')}</span>
                 </div>
-                <div className="user-block" title="Tester Testman">
-                    <span className="full-name">Tester Testman</span>
-                    <span className="user-icon" onClick={handleLogOut}>
+                <div className={scss.userBlock} title="Tester Testman">
+                    <span className={scss.fullName}>Tester Testman</span>
+                    <span className={scss.userIcon} onClick={handleLogOut}>
                         A
                     </span>
                 </div>
