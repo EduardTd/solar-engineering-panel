@@ -1,0 +1,96 @@
+@import '../../../../assets/styles/base';
+
+.formAddNew {
+    height: 100%;
+}
+
+.actionsToolbar {
+    @include actionsToolbar();
+}
+
+.buttonWhite {
+    @include buttonWhite();
+}
+
+//
+//  Mobile
+//  _____________________________________________
+@include media-width('max', $screen_m) {
+    .formAddNew {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: $mobile-layout-space;
+    }
+
+    .leftColumn {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .rightColumn {
+        margin-top: auto;
+    }
+
+    .bottomSection {
+        box-shadow: 0px -1px 2px rgba(0, 0, 0, 0.15);
+        margin-left: -$mobile-layout-space;
+        margin-right: -$mobile-layout-space;
+        padding-left: $mobile-layout-space;
+        padding-right: $mobile-layout-space;
+        padding-top: 16px;
+    }
+
+    .actionsToolbar {
+        flex-wrap: nowrap;
+
+        > * + * {
+            margin-left: 20px;
+            margin-top: 0;
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+@include media-width('min', $screen_m) {
+    .formAddNew {
+        display: flex;
+        max-height: 100%;
+        overflow: hidden;
+        padding: 0 32px;
+    }
+
+    .leftColumn {
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding-right: 16px;
+        width: 59%;
+    }
+
+    .rightColumn {
+        display: inline-flex;
+        flex-direction: column;
+        padding-bottom: 32px;
+        padding-left: 16px;
+        padding-top: 32px;
+        width: 41%;
+    }
+
+    .bottomSection {
+        margin-top: auto;
+    }
+
+    .actionsToolbar {
+        margin-top: 24px;
+
+        button {
+            fill: none;
+
+            + button {
+                margin-left: 16px;
+            }
+        }
+    }
+}

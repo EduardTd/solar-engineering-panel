@@ -2,6 +2,7 @@ import React, { FunctionComponent, useContext } from 'react';
 import { Form, Formik } from 'formik';
 import { ModalContext } from '../../../context/ModalContext';
 import { useTranslation } from 'react-i18next';
+import scss from './styles/newPlantForm.module.scss';
 
 const NewPlantForm: FunctionComponent = () => {
     const { t } = useTranslation();
@@ -10,12 +11,16 @@ const NewPlantForm: FunctionComponent = () => {
     return (
         <Formik initialValues={{}} onSubmit={() => {}}>
             {() => (
-                <Form className="form form-add-new">
-                    <div className="left-column" />
-                    <div className="right-column">
-                        <div className="bottom-section">
-                            <div className="actions-toolbar">
-                                <button className="button-white" type="button" onClick={closeModal}>
+                <Form className={scss.formAddNew}>
+                    <div className={scss.leftColumn} />
+                    <div className={scss.rightColumn}>
+                        <div className={scss.bottomSection}>
+                            <div className={scss.actionsToolbar}>
+                                <button
+                                    className={scss.buttonWhite}
+                                    type="button"
+                                    onClick={closeModal}
+                                >
                                     {t('Cancel')}
                                 </button>
                             </div>
