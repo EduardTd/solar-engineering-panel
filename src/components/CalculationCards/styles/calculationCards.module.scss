@@ -1,0 +1,46 @@
+@import '../../../assets/global/global';
+
+.columnsWrapper {
+    display: flex;
+}
+
+.cardColumn {
+    background: $color-white-snow;
+    border: 1px solid $color-gray-gainsboro;
+    border-radius: 4px;
+    box-sizing: border-box;
+    flex-grow: 1;
+    min-width: 261px;
+    padding: 16px 8px;
+    width: calc(100% / 3);
+
+    &:not(:last-child) {
+        margin-right: 8px;
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+@include media-width('max', $screen_m) {
+    .cardSelection {
+        margin-right: -$mobile-layout-space;
+        max-width: calc(100vw - 1px - #{$mobile-layout-space});
+        overflow: hidden;
+    }
+
+    .columnsWrapper {
+        overflow: auto;
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+@include media-width('min', $screen_m) {
+    .cardColumn {
+        max-height: 50vh;
+        min-width: 200px;
+        overflow: auto;
+    }
+}

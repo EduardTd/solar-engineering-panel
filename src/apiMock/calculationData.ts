@@ -1,23 +1,24 @@
 import { TCalculationData } from '../types/cardsTypes';
+import { ECardType } from '../types/enums';
 
 const calculationData: TCalculationData = {
     plants: [
         {
             title: 'Plant Version 1',
             description: ['Preliminary', 'View factors'],
-            status: 'inactive',
+            status: ECardType.Inactive,
             additionalData: {},
         },
         {
             title: 'Plant Version 2',
             description: ['Detailed', 'Ray tracing'],
-            status: 'inactive',
+            status: ECardType.Inactive,
             additionalData: {},
         },
         {
             title: 'Plant GM file',
             description: ['Detailed', 'Ray tracing'],
-            status: 'inactive',
+            status: ECardType.Inactive,
             additionalData: {},
         },
     ],
@@ -25,13 +26,13 @@ const calculationData: TCalculationData = {
         {
             title: 'Mitsubishi PV-MLU255HC',
             description: [],
-            status: 'inactive',
+            status: ECardType.Inactive,
             additionalData: {},
         },
         {
             title: 'SEP 300W',
             description: [],
-            status: 'inactive',
+            status: ECardType.Inactive,
             additionalData: {},
         },
     ],
@@ -39,31 +40,31 @@ const calculationData: TCalculationData = {
         {
             title: 'Inverter 1',
             description: ['Missing details'],
-            status: 'disabled',
+            status: ECardType.Disabled,
             additionalData: {},
         },
         {
             title: 'Inverter 2',
             description: ['Missing details'],
-            status: 'disabled',
+            status: ECardType.Disabled,
             additionalData: {},
         },
         {
             title: 'SMA Sunny Boy 5.0',
             description: [],
-            status: 'inactive',
+            status: ECardType.Inactive,
             additionalData: {},
         },
         {
             title: 'GoodWe GW15KN-DT',
             description: [],
-            status: 'inactive',
+            status: ECardType.Inactive,
             additionalData: {},
         },
         {
             title: 'ABB UNO-DM-4.0-TL-PLUS',
             description: [],
-            status: 'inactive',
+            status: ECardType.Inactive,
             additionalData: {},
         },
     ],

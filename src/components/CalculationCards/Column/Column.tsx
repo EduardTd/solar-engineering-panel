@@ -7,7 +7,7 @@ type TModuleColumn = {
     columnType: ECardsColumnType;
 };
 
-const Columns: FunctionComponent<TModuleColumn> = ({ columnType }) => {
+const Column: FunctionComponent<TModuleColumn> = ({ columnType }) => {
     const { cardsState } = useContext(CardsContext);
     const columnData = cardsState[columnType];
 
@@ -27,4 +27,4 @@ const Columns: FunctionComponent<TModuleColumn> = ({ columnType }) => {
     );
 };
 
-export default Columns;
+export default Column;

@@ -1,0 +1,99 @@
+@import '../../../../assets/global/global';
+
+.card {
+    background-color: $color-white;
+    border: 1px solid $color-gray-gainsboro;
+    border-radius: 4px;
+    box-shadow: 0px 2px 8px rgba(11, 30, 53, 0.1);
+    margin-bottom: 8px;
+    min-height: 70px;
+    padding: 13px 28px 12px 16px;
+    position: relative;
+    transition: all 0.2s linear;
+
+    &:not(.active):not(.disabled) {
+        &:hover {
+            background-color: $color-white-snow;
+            cursor: pointer;
+
+            .check {
+                background-color: $color-gray-silver;
+                border-color: $color-white;
+            }
+        }
+    }
+
+    &.active {
+        background-color: $color-green-tranquil;
+        border-color: $color-green-eden;
+
+        .check {
+            background-color: $color-green-eden;
+            border-color: $color-green-eden;
+        }
+
+        .descriptionItem {
+            color: $color-green-juniper;
+
+            &:before {
+                background-color: $color-green-juniper;
+            }
+        }
+    }
+
+    &.disabled {
+        opacity: 0.3;
+    }
+}
+
+.check {
+    border: 1px solid $color-gray-silver_dark;
+    border-radius: 50%;
+    display: block;
+    height: 16px;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    width: 16px;
+
+    &:before {
+        border-bottom: 1px solid $color-white;
+        border-right: 1px solid $color-white;
+        content: '';
+        display: block;
+        height: 8px;
+        left: 50%;
+        position: absolute;
+        top: 38%;
+        transform: translate(-50%, -50%) rotate(40deg);
+        width: 5px;
+    }
+}
+
+.description {
+    @include font-size(12);
+    align-items: center;
+    color: $color-gray-silver_dark;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.descriptionItem {
+    margin-top: 4px;
+
+    + .descriptionItem {
+        align-items: center;
+        display: inline-flex;
+
+        &:before {
+            background-color: $color-gray-silver_dark;
+            border-radius: 50%;
+            content: '';
+            display: inline-block;
+            height: 4px;
+            margin-left: 4px;
+            margin-right: 4px;
+            width: 4px;
+        }
+    }
+}
