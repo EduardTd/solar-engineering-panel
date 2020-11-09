@@ -5,6 +5,6 @@
     font-weight: $font-weight__regular;
 }
 
-.custom-checkbox {
+.customCheckbox {
     @include input-checkbox();
 }

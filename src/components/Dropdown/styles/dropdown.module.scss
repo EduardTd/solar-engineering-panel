@@ -1,4 +1,6 @@
-.dropdow-title {
+@import '../../../assets/global/global';
+
+.dropdowTitle {
     @include font-size(12);
     color: $color-gray;
     padding: 8px 8px 8px 19px;
@@ -28,7 +30,8 @@
         }
     }
 }
-.dropdown-content {
+
+.dropdownContent {
     @include font-size(12);
     -webkit-animation: scale-up-ver-top 0.3s cubic-bezier(1, 1, 1, 1) both;
     animation: scale-up-ver-top 0.3s cubic-bezier(1, 1, 1, 1) both;

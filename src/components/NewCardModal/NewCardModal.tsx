@@ -4,6 +4,7 @@ import { ECardsColumnType } from '../../types/enums';
 import NewPlantForm from '../NewCardForms/NewPlantForm';
 import NewInverterForm from '../NewCardForms/NewInverterForm';
 import NewModuleForm from '../NewCardForms/NewModuleForm';
+import scss from './styles/newCardModal.module.scss';
 
 const NewCardModal: FunctionComponent = () => {
     const { isOpen, modalType, closeModal } = useContext(ModalContext);
@@ -26,9 +27,9 @@ const NewCardModal: FunctionComponent = () => {
     }
 
     return (
-        <div className={`modal ${modalType}`}>
-            <div className="modal-overlay" onClick={closeModal} />
-            <div className="modal-content">{modalContent(modalType)}</div>
+        <div className={scss.modal}>
+            <div className={scss.modalOverlay} onClick={closeModal} />
+            <div className={scss.modalContent}>{modalContent(modalType)}</div>
         </div>
     );
 };

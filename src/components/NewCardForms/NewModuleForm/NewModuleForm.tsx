@@ -3,10 +3,11 @@ import { Form, Formik } from 'formik';
 import { ModalContext } from '../../../context/ModalContext';
 import { CardsContext } from '../../../context/CardsContext';
 import { TAddNewModule } from '../../../types/formValues';
-import { ECardsColumnType } from '../../../types/enums';
+import { ECardsColumnType, ECardType } from '../../../types/enums';
 import moduleCardSchema from './moduleCardSchema';
 import LeftColumn from './LeftColumn';
 import RightColumn from './RightColumn';
+import scss from './styles/newModuleForm.module.scss';
 
 const NewModuleForm: FunctionComponent = () => {
     const { closeModal } = useContext(ModalContext);
@@ -32,7 +33,7 @@ const NewModuleForm: FunctionComponent = () => {
         const newCardData = {
             title: values.moduleName,
             description: [],
-            status: 'inactive',
+            status: ECardType.Inactive,
             additionalData: values,
         };
         newData[ECardsColumnType.Modules].unshift(newCardData);
@@ -48,7 +49,7 @@ const NewModuleForm: FunctionComponent = () => {
             validationSchema={moduleCardSchema}
         >
             {({ errors, touched }) => (
-                <Form className="form form-add-new">
+                <Form className={scss.formAddNew}>
                     <LeftColumn errors={errors} touched={touched} />
                     <RightColumn errors={errors} touched={touched} />
                 </Form>

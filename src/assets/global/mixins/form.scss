@@ -33,18 +33,3 @@
         }
     }
 }
-
-@mixin fieldGroup() {
-    // Desktop
-    @include media-width('min', $screen_m) {
-        display: flex;
-
-        > * {
-            flex-grow: 1;
-
-            + * {
-                margin-left: 24px;
-            }
-        }
-    }
-}

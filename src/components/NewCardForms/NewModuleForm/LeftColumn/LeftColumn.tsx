@@ -5,6 +5,7 @@ import TextField from '../../../FormFields/TextField';
 import { selectFieldData } from '../../mockData/selectField';
 import { TCardSelectField } from '../../../../types/formValues';
 import SelectField from '../../../FormFields/SelectField';
+import scss from './styles/leftColumn.module.scss';
 
 type TLeftColumn = {
     errors: FormikErrors<any>;
@@ -26,20 +27,20 @@ const LeftColumn: FunctionComponent<TLeftColumn> = ({ errors, touched }) => {
     };
 
     return (
-        <div className="left-column">
+        <div className={scss.leftColumn}>
             <h2>{`${t('Add new')} ${t('module')}`}</h2>
-            <div className="quick-add">
+            <div className={scss.quickAdd}>
                 <h3>{t('Quick add')}</h3>
-                <div className="toolbar">
-                    <button className="button-white" type="button">
+                <div className={scss.toolbar}>
+                    <button className={scss.buttonWhite} type="button">
                         {t('Upload PAN file')}
                     </button>
-                    <button className="button-white" type="button">
+                    <button className={scss.buttonWhite} type="button">
                         {t('Select from presets')}
                     </button>
                 </div>
             </div>
-            <div className="fieldset">
+            <div className={scss.fieldset}>
                 <h3>{t('Parameters')}</h3>
                 <TextField
                     errors={errors}
@@ -48,7 +49,7 @@ const LeftColumn: FunctionComponent<TLeftColumn> = ({ errors, touched }) => {
                     fieldId="module-name"
                     fieldName="moduleName"
                 />
-                <div className="field-group">
+                <div className={scss.fieldGroup}>
                     {selectFieldData.map((fieldData: TCardSelectField, index: number) => {
                         return (
                             <SelectField
@@ -64,7 +65,7 @@ const LeftColumn: FunctionComponent<TLeftColumn> = ({ errors, touched }) => {
                         );
                     })}
                 </div>
-                <div className="field-group">
+                <div className={scss.fieldGroup}>
                     <TextField
                         errors={errors}
                         touched={touched}
@@ -82,7 +83,7 @@ const LeftColumn: FunctionComponent<TLeftColumn> = ({ errors, touched }) => {
                         unit="mm"
                     />
                 </div>
-                <div className="field-group">
+                <div className={scss.fieldGroup}>
                     <TextField
                         errors={errors}
                         touched={touched}
@@ -100,7 +101,7 @@ const LeftColumn: FunctionComponent<TLeftColumn> = ({ errors, touched }) => {
                         unit="mm"
                     />
                 </div>
-                <div className="field-group">
+                <div className={scss.fieldGroup}>
                     <TextField
                         errors={errors}
                         touched={touched}
@@ -116,7 +117,7 @@ const LeftColumn: FunctionComponent<TLeftColumn> = ({ errors, touched }) => {
                         fieldName="cellsAlongHeight"
                     />
                 </div>
-                <div className="field-group">
+                <div className={scss.fieldGroup}>
                     <TextField
                         errors={errors}
                         touched={touched}

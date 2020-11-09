@@ -1,4 +1,4 @@
-@import 'form-add-new';
+@import '../../../assets/global/global';
 
 .modal {
     bottom: 0;
@@ -8,17 +8,16 @@
     z-index: 60;
 }
 
-/*
-  Mobile
-  _____________________________________________
-*/
+//
+//  Mobile
+//  _____________________________________________
 @include media-width('max', $screen_m) {
     .modal {
         background-color: $color-white;
         top: 52px;
     }
 
-    .modal-overlay {
+    .modalOverlay {
         bottom: 0;
         left: 0;
         position: fixed;
@@ -26,21 +25,20 @@
         top: 0;
     }
 
-    .modal-content {
+    .modalContent {
         height: 100%;
     }
 }
 
-/*
-  Desktop
-  _____________________________________________
-*/
+//
+//  Desktop
+//  _____________________________________________
 @include media-width('min', $screen_m) {
     .modal {
         top: 52px;
     }
 
-    .modal-overlay {
+    .modalOverlay {
         background-color: rgba(0, 0, 0, 0.8);
         bottom: 0;
         left: 0;
@@ -49,7 +47,7 @@
         top: 0;
     }
 
-    .modal-content {
+    .modalContent {
         @include absolute-center();
         background-color: $color-white;
         border: 1px solid $color-gray-gainsboro;

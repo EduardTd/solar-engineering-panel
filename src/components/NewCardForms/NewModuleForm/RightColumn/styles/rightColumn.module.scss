@@ -1,0 +1,100 @@
+@import '../../../../../assets/global/global';
+
+.infoBlock {
+    @include font-size(12);
+    color: $color-gray-silver_dark;
+
+    svg {
+        height: 24px;
+        margin-bottom: 12px;
+        width: 24px;
+
+        path {
+            fill: $color-gray-silver_dark;
+        }
+    }
+}
+
+.moduleType {
+    display: block;
+    font-weight: $font-weight__bold;
+    margin-bottom: 4px;
+}
+
+.actionsToolbar {
+    @include actionsToolbar();
+}
+
+.buttonWhite {
+    @include buttonWhite();
+}
+
+.buttonGreen {
+    @include buttonGreen();
+}
+
+//
+//  Mobile
+//  _____________________________________________
+@include media-width('max', $screen_m) {
+    .rightColumn {
+        margin-top: auto;
+    }
+
+    .newModuleDropdown,
+    .infoBlock {
+        display: none;
+    }
+
+    .bottomSection {
+        box-shadow: 0px -1px 2px rgba(0, 0, 0, 0.15);
+        margin-left: -$mobile-layout-space;
+        margin-right: -$mobile-layout-space;
+        padding-left: $mobile-layout-space;
+        padding-right: $mobile-layout-space;
+        padding-top: 16px;
+    }
+
+    .checkboxField {
+        text-align: center;
+    }
+
+    .actionsToolbar {
+        flex-wrap: nowrap;
+
+        > * + * {
+            margin-left: 20px;
+            margin-top: 0;
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+@include media-width('min', $screen_m) {
+    .rightColumn {
+        display: inline-flex;
+        flex-direction: column;
+        padding-bottom: 32px;
+        padding-left: 16px;
+        padding-top: 32px;
+        width: 41%;
+    }
+
+    .bottomSection {
+        margin-top: auto;
+    }
+
+    .actionsToolbar {
+        margin-top: 24px;
+
+        button {
+            fill: none;
+
+            + button {
+                margin-left: 16px;
+            }
+        }
+    }
+}

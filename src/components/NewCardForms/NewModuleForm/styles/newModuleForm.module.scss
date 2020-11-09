@@ -1,0 +1,29 @@
+@import '../../../../assets/global/global';
+
+.formAddNew {
+    height: 100%;
+}
+
+//
+//  Mobile
+//  _____________________________________________
+@include media-width('max', $screen_m) {
+    .formAddNew {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: $mobile-layout-space;
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+@include media-width('min', $screen_m) {
+    .formAddNew {
+        display: flex;
+        max-height: 100%;
+        overflow: hidden;
+        padding: 0 32px;
+    }
+}
