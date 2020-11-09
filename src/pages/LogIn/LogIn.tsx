@@ -1,6 +1,6 @@
 import React, { Fragment, FunctionComponent, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../assets/images/logo.svg';
 import { ESessionStorageKey } from '../../types/enums';
 import routes from '../../routes/routes';
@@ -33,9 +33,9 @@ const LogIn: FunctionComponent = () => {
                 <LogInForm />
                 <div className={scss.signUp}>
                     <span className={scss.signUpText}>{t('Don’t have an account?')} </span>
-                    <a href="/" className={scss.signUpLink}>
+                    <Link className={scss.signUpLink} to={routes.signUp} title={t('Sign Up')}>
                         {t('Sign Up')}
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>

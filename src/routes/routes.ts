@@ -1,5 +1,6 @@
 const routes = {
     logIn: '/',
+    signUp: '/sign-up',
     summary: '/summary',
     plantsAndElectrical: '/plants-and-electrical',
     meteo: '/meteo',

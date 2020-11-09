@@ -12,6 +12,7 @@ import { getToken } from '../../store/app/selectors';
 import { ESessionStorageKey } from '../../types/enums';
 import { withProviders } from '../../context/withProviders';
 import * as ContextProvider from '../../context';
+import SignUp from '../SignUp';
 
 const PagesHandler: FunctionComponent = () => {
     const token = useSelector(getToken);
@@ -30,6 +31,7 @@ const PagesHandler: FunctionComponent = () => {
     return (
         <Switch>
             <Route exact path={routes.logIn} component={LogIn} />
+            <Route exact path={routes.signUp} component={SignUp} />
             {hasToken || token ? (
                 <Fragment>
                     <Route exact path={routes.summary} component={Summary} />
