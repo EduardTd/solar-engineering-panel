@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { ErrorMessage, FormikErrors, FormikTouched } from 'formik';
 import { TSelectOption } from '../../../types/formValues';
+import scss from './styles/selectField.module.scss';
 
 type TTextField = {
     errors: FormikErrors<any>;
@@ -23,20 +24,20 @@ const SelectField: FunctionComponent<TTextField> = ({
     disabled,
     onChangeHandler,
 }) => {
-    const errorClass = `${errors[fieldName] && touched[fieldName] ? 'error' : ''}`;
-    const disabledClass = `${disabled ? 'disabled' : ''}`;
-    const selectFieldClass = `select-field ${errorClass} ${disabledClass}`;
+    const errorClass = `${errors[fieldName] && touched[fieldName] ? scss.error : ''}`;
+    const disabledClass = `${disabled ? scss.disabled : ''}`;
+    const selectFieldClass = `${scss.selectField} ${errorClass} ${disabledClass}`;
 
     return (
         <div className={selectFieldClass}>
-            <label className="label" htmlFor={fieldId}>
+            <label className={scss.label} htmlFor={fieldId}>
                 {label}
             </label>
-            <span className="select-wrapper">
+            <span className={scss.selectWrapper}>
                 <select
                     name={fieldName}
                     id={fieldId}
-                    className="select"
+                    className={scss.select}
                     disabled={!!disabled}
                     onChange={onChangeHandler}
                 >
@@ -50,7 +51,7 @@ const SelectField: FunctionComponent<TTextField> = ({
                     })}
                 </select>
             </span>
-            <ErrorMessage component="span" className="error-message" name={fieldName} />
+            <ErrorMessage component="span" className={scss.errorMessage} name={fieldName} />
         </div>
     );
 };

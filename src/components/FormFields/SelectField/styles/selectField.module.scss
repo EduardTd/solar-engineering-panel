@@ -1,3 +1,5 @@
+@import '../../../../assets/global/global';
+
 .select {
     @include font-size(14);
     -moz-appearance: none;
@@ -21,7 +23,7 @@
     }
 }
 
-.select-wrapper {
+.selectWrapper {
     display: block;
     position: relative;
 
@@ -40,35 +42,35 @@
     }
 }
 
-.select-field {
+.selectField {
     margin-bottom: 24px;
     position: relative;
     text-align: left;
+}
 
-    &.error {
-        .select {
-            border-color: $form-error-color;
-            color: $form-error-color;
-        }
-    }
-
-    &.disabled {
-        .label {
-            color: $color-gray;
-        }
-
-        .select {
-            background-color: $color-gray-whisper;
-            color: $color-gray-silver;
-        }
-    }
-
-    .error-message {
-        @include font-size(10);
-        bottom: 0;
+.error {
+    .select {
+        border-color: $form-error-color;
         color: $form-error-color;
-        left: 0;
-        position: absolute;
-        transform: translateY(100%);
     }
+}
+
+.disabled {
+    .label {
+        color: $color-gray;
+    }
+
+    .select {
+        background-color: $color-gray-whisper;
+        color: $color-gray-silver;
+    }
+}
+
+.errorMessage {
+    @include font-size(10);
+    bottom: 0;
+    color: $form-error-color;
+    left: 0;
+    position: absolute;
+    transform: translateY(100%);
 }
