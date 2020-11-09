@@ -1,4 +1,4 @@
-@import '../../../assets/global/global';
+@import '../../../assets/styles/base';
 
 .sidebar {
     min-height: 100%;
@@ -66,10 +66,9 @@
     font-weight: $font-weight__heavier;
 }
 
-/*
-  Mobile
-  _____________________________________________
-*/
+//
+//  Mobile
+//  _____________________________________________
 @include media-width('max', $screen_l) {
     .sidebar {
         bottom: 0;

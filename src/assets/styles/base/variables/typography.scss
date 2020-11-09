@@ -1,25 +1,25 @@
 $font-family__inter: 'inter';
 $font-family__base: $font-family__inter, Helvetica, Arial, sans-serif;
 
-$font-size__base: 14; /* size in px */
+$font-size__base: 14; // size in px
 
-/* Weights */
+// Weights
 $font-weight__light: 300;
 $font-weight__regular: 400;
 $font-weight__heavier: 500;
 $font-weight__semibold: 600;
 $font-weight__bold: 700;
 
-/* Styles */
+// Styles
 $font-style__base: normal;
 $font-style__emphasis: italic;
 
-/* Link */
+// Link
 $link-color: $color-black;
 $link-hover-color: $active-color;
-$link-font-size: $font-size__base; /* size in px */
+$link-font-size: $font-size__base; // size in px
 $link-text-decoration: none;
 
-/* Heading */
+// Heading
 $heading-color__base: $color-black;
 $font-family__heading: $font-family__base;

@@ -1,5 +1,15 @@
+html {
+    font-size: 62.5%;
+}
+
 body {
+    @include font-size($font-size__base);
     background-color: $color-white;
+    color: $text_color;
+    font-family: $font-family__base;
+    font-style: $font-style__base;
+    font-weight: $font-weight__regular;
+    line-height: 1.5;
 
     footer {
         margin-top: auto;
