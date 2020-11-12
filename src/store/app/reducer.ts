@@ -4,7 +4,6 @@ import { Action, AppState } from '../../types/storeTypes';
 
 export const initialState = Object.freeze<AppState>({
     locale: 'en_US',
-    token: '',
 });
 
 export default (state: AppState = initialState, action: Action): AppState =>
@@ -12,11 +11,6 @@ export default (state: AppState = initialState, action: Action): AppState =>
         switch (action.type) {
             case ActionTypes.SET_LOCALE: {
                 draft.locale = action.payload;
-
-                return;
-            }
-            case ActionTypes.SET_USER_TOKEN: {
-                draft.token = action.payload;
 
                 return;
             }

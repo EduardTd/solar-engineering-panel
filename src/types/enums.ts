@@ -1,7 +1,3 @@
-export enum ESessionStorageKey {
-    Token = 'token',
-}
-
 export enum ENoticeType {
     Default = '',
     Error = 'error',
@@ -20,4 +16,9 @@ export enum ECardType {
     Disabled = 'disabled',
     Inactive = 'inactive',
     Active = 'active',
+}
+
+export enum ELocalStorage {
+    Token = 'token',
+    UserId = 'userId',
 }

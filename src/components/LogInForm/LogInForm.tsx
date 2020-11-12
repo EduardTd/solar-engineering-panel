@@ -1,15 +1,17 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, Fragment } from 'react';
 import { Formik, Form } from 'formik';
 import { useTranslation } from 'react-i18next';
-import useLogIn from './useLogIn';
 import logInSchema from './logInSchema';
 import TextField from '../FormFields/TextField';
 import scss from './styles/log-in-form.module.scss';
+import { useLogin } from '../../graphql/login/useLogin';
+import { TLogInFormValues } from '../../types/formValues';
+import Loading from '../Loading';
 
 const LogInForm: FunctionComponent = () => {
     const { t } = useTranslation();
-    const { onSubmit } = useLogIn();
-    const initialValues = {
+    const { onSubmit, loading } = useLogin();
+    const initialValues: TLogInFormValues = {
         email: '',
         password: '',
     };
@@ -39,6 +41,7 @@ const LogInForm: FunctionComponent = () => {
                         type="password"
                     />
                     <div className={scss.actionsToolbar}>
+                        {loading ? <Loading /> : <Fragment />}
                         <button className={scss.buttonGreen} type="submit">
                             {t('Log in')}
                         </button>

@@ -1,25 +1,23 @@
 import React, { FunctionComponent, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { ReactComponent as HamburgerIcon } from '../../assets/images/icons/hamburger-icon.svg';
 import { ReactComponent as HomeIcon } from '../../assets/images/icons/home-icon.svg';
 import ToggleNavigation from '../ToggleNavigation';
-import { ESessionStorageKey } from '../../types/enums';
-import { setUserToken } from '../../store/app/actions';
 import routes from '../../routes/routes';
 import scss from './styles/header.module.scss';
+import { setIsLoggedInVar } from '../../graphql/apollo/cache';
+import { useApolloClient } from '@apollo/client';
 
 const Header: FunctionComponent = () => {
     const { t } = useTranslation();
-    const dispatch = useDispatch();
-    const { replace } = useHistory();
-    const handleLogOut = useCallback(() => {
-        sessionStorage.removeItem(ESessionStorageKey.Token);
-        dispatch(setUserToken(''));
+    const { cache } = useApolloClient();
 
-        replace(routes.logIn);
+    const handleLogOut = useCallback(() => {
+        cache.evict({ fieldName: 'getUser' });
+        cache.gc();
+        localStorage.clear();
+        setIsLoggedInVar(false);
     }, []);
 
     return (

@@ -35,6 +35,7 @@ module.exports = {
         'no-unused-vars': 'off',
         'jsx-a11y/no-onchange': 'off',
         'react-hooks/exhaustive-deps': 'off',
+        'no-debugger': 'off',
     },
     overrides: [
         {

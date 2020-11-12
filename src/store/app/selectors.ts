@@ -4,5 +4,3 @@ import { AppState, Locale } from '../../types/storeTypes';
 export const app = (state: { app: AppState }): AppState => state.app;
 
 export const getLocale = createSelector([app], (app): Locale => app.locale);
-
-export const getToken = createSelector([app], (app) => app.token);

@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useState } from 'react';
+import React, { createContext, FunctionComponent, ReactNode, useCallback, useState } from 'react';
 import { ENoticeType } from '../types/enums';
 
 export interface INoticeValues {
@@ -19,7 +19,15 @@ const initialNoticeValues = {
 
 export const NoticeContext = createContext<INoticeValues>(initialNoticeValues);
 
-export const NoticeContextProvider = ({ children }: { children: React.ReactNode }) => {
+type TProvider = {
+    children: ReactNode;
+};
+
+export const NoticeContextProvider: FunctionComponent<TProvider> = ({
+    children,
+}: {
+    children: React.ReactNode;
+}) => {
     const [message, setMessage] = useState(initialNoticeValues.message);
     const [messageType, setMessageType] = useState(initialNoticeValues.messageType);
     const [isClose, setIsClose] = useState(initialNoticeValues.isClose);

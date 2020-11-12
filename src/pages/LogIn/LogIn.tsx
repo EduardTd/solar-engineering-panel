@@ -1,8 +1,7 @@
-import React, { Fragment, FunctionComponent, useEffect, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../assets/images/logo.svg';
-import { ESessionStorageKey } from '../../types/enums';
 import routes from '../../routes/routes';
 import GlobalNotice from '../../components/GlobalNotice';
 import LogInForm from '../../components/LogInForm';
@@ -10,18 +9,8 @@ import scss from './styles/log-in-page.module.scss';
 
 const LogIn: FunctionComponent = () => {
     const { t } = useTranslation();
-    const { replace } = useHistory();
-    const [loaded, setLoaded] = useState(false);
 
-    useEffect(() => {
-        if (sessionStorage.getItem(ESessionStorageKey.Token)) {
-            replace(routes.summary);
-        }
-
-        setLoaded(true);
-    }, []);
-
-    return loaded ? (
+    return (
         <div className={scss.logInPage}>
             <GlobalNotice />
             <div className={scss.logInBlock}>
@@ -39,8 +28,6 @@ const LogIn: FunctionComponent = () => {
                 </div>
             </div>
         </div>
-    ) : (
-        <Fragment />
     );
 };
 

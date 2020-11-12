@@ -1,6 +1,5 @@
 export type TAddNewModule = {
     moduleName: string;
-    password: string;
     savePreset: string;
     moduleType: string;
     moduleLayers: string;
@@ -24,4 +23,9 @@ export type TCardSelectField = {
 export type TSelectOption = {
     name: string;
     value: string;
+};
+
+export type TLogInFormValues = {
+    email: string;
+    password: string;
 };

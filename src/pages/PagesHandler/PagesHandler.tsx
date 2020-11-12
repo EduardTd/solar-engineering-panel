@@ -1,5 +1,5 @@
-import React, { FunctionComponent, Fragment, useEffect, useState } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import React, { FunctionComponent } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import routes from '../../routes/routes';
 import LogIn from '../LogIn';
 import Summary from '../Summary';
@@ -7,49 +7,32 @@ import PlantsAndElectrical from '../PlantsAndElectrical';
 import Meteo from '../Meteo';
 import Calculations from '../Calculations';
 import Calculated from '../Calculated';
-import { useSelector } from 'react-redux';
-import { getToken } from '../../store/app/selectors';
-import { ESessionStorageKey } from '../../types/enums';
 import { withProviders } from '../../context/withProviders';
 import * as ContextProvider from '../../context';
 import SignUp from '../SignUp';
+import useIsLoggedIn from '../../graphql/login/useIsLoggedIn';
+import PageNotFound from '../PageNotFound';
+import PrivateRoute from '../../routes/PrivateRoute';
+import PublicOnlyRoute from '../../routes/PublicOnlyRoute';
+import Loading from '../../components/Loading';
 
 const PagesHandler: FunctionComponent = () => {
-    const token = useSelector(getToken);
-    const [appLoaded, setAppLoaded] = useState(false);
-    const [hasToken, setHasToken] = useState(false);
+    const { isLoaded } = useIsLoggedIn();
 
-    useEffect(() => {
-        setAppLoaded(true);
-        setHasToken(Boolean(sessionStorage.getItem(ESessionStorageKey.Token)));
-    }, []);
-
-    if (!appLoaded) {
-        return <Fragment />;
+    if (!isLoaded) {
+        return <Loading />;
     }
 
     return (
         <Switch>
-            <Route exact path={routes.logIn} component={LogIn} />
-            <Route exact path={routes.signUp} component={SignUp} />
-            {hasToken || token ? (
-                <Fragment>
-                    <Route exact path={routes.summary} component={Summary} />
-                    <Route
-                        exact
-                        path={routes.plantsAndElectrical}
-                        component={PlantsAndElectrical}
-                    />
-                    <Route exact path={routes.meteo} component={Meteo} />
-                    <Route exact path={routes.calculations} component={Calculations} />
-                    <Route exact path={routes.calculated} component={Calculated} />
-                    <Route render={() => '404!'} />
-                </Fragment>
-            ) : (
-                <Route path="/">
-                    <Redirect to={routes.logIn} />
-                </Route>
-            )}
+            <PublicOnlyRoute exact path={routes.logIn} component={LogIn} />
+            <PublicOnlyRoute exact path={routes.signUp} component={SignUp} />
+            <PrivateRoute exact path={routes.summary} component={Summary} />
+            <PrivateRoute exact path={routes.plantsAndElectrical} component={PlantsAndElectrical} />
+            <PrivateRoute exact path={routes.meteo} component={Meteo} />
+            <PrivateRoute exact path={routes.calculations} component={Calculations} />
+            <PrivateRoute exact path={routes.calculated} component={Calculated} />
+            <Route component={PageNotFound} />
         </Switch>
     );
 };

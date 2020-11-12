@@ -14,7 +14,6 @@ const NewModuleForm: FunctionComponent = () => {
     const { cardsState, setCardsState } = useContext(CardsContext);
     const initialValues = {
         moduleName: '',
-        password: '',
         savePreset: '',
         moduleType: '',
         moduleLayers: '',
