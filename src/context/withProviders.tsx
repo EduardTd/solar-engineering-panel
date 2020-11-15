@@ -18,7 +18,7 @@ const renderComponents = (Component: React.ComponentType, renderMap: any[], prop
 
 export const withProviders = (
     Component: React.ComponentType,
-    providers: { [index: string]: React.ReactNode },
+    providers: { [index: string]: React.ReactNode }
 ) => {
     const providersArray = Object.keys(providers).map((key) => providers[key]);
 

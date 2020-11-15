@@ -1,6 +1,6 @@
 import { produce } from 'immer';
-import { ActionTypes } from './actions';
 import { Action, AppState } from '../../types/storeTypes';
+import { ActionTypes } from './actions';
 
 export const initialState = Object.freeze<AppState>({
     locale: 'en_US',

@@ -1,10 +1,10 @@
-import { IAddModuleCard, ICardValues, TCalculationData } from '../../types/cardsTypes';
-import { addNewCardToCache, cardStatusHandler } from './utils';
 import { useApolloClient, useMutation } from '@apollo/client';
-import { ADD_MODULE_CARD } from './query';
-import { ECardsColumnType, ENoticeType } from '../../types/enums';
 import { useContext } from 'react';
+import { IAddModuleCard, ICardValues, TCalculationData } from '../../types/cardsTypes';
+import { ECardsColumnType, ENoticeType } from '../../types/enums';
 import { NoticeContext } from '../../context/NoticeContext';
+import { addNewCardToCache, cardStatusHandler } from './utils';
+import { ADD_MODULE_CARD } from './query';
 
 type TUseCard = {
     changeCardStatus: (columnName: string, cardIndex: number) => void;

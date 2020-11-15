@@ -20,7 +20,11 @@ h3 {
     @include font-size(18);
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
     color: $heading-color__base;
     font-family: $font-family__heading;
     font-weight: $font-weight__bold;

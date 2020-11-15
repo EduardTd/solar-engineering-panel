@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import useIsLoggedIn from '../graphql/login/useIsLoggedIn';
 import { Redirect, Route } from 'react-router-dom';
-import routes from './routes';
 import { RouteProps } from 'react-router';
+import useIsLoggedIn from '../graphql/login/useIsLoggedIn';
+import routes from './routes';
 
 const PublicOnlyRoute: FunctionComponent<RouteProps> = (props) => {
     const { isLoggedIn } = useIsLoggedIn();

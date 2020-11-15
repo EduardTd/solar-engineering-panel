@@ -1,13 +1,13 @@
 import React, { FunctionComponent, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useApolloClient } from '@apollo/client';
 import { ReactComponent as HamburgerIcon } from '../../assets/images/icons/hamburger-icon.svg';
 import { ReactComponent as HomeIcon } from '../../assets/images/icons/home-icon.svg';
 import ToggleNavigation from '../ToggleNavigation';
 import routes from '../../routes/routes';
-import scss from './styles/header.module.scss';
 import { setIsLoggedInVar } from '../../graphql/apollo/cache';
-import { useApolloClient } from '@apollo/client';
+import scss from './styles/header.module.scss';
 
 const Header: FunctionComponent = () => {
     const { t } = useTranslation();

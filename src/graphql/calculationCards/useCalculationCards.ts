@@ -1,8 +1,8 @@
 import { useQuery } from '@apollo/client';
-import { CALCULATION_CARDS } from './query';
-import { ECardsColumnType, ECardType, ELocalStorage } from '../../types/enums';
 import { useCallback } from 'react';
+import { ECardsColumnType, ECardType, ELocalStorage } from '../../types/enums';
 import { ICalculationCards, TCalculationData, TCardData } from '../../types/cardsTypes';
+import { CALCULATION_CARDS } from './query';
 
 type TUseCalculationCards = {
     loading: boolean;
@@ -30,7 +30,7 @@ const useCalculationCards = (): TUseCalculationCards => {
 
             return quantity.length;
         },
-        [calculationCards],
+        [calculationCards]
     );
 
     return { loading, calculationCards, getActiveQuantity };

@@ -1,12 +1,12 @@
 import React, { FunctionComponent, Fragment } from 'react';
 import { Formik, Form } from 'formik';
 import { useTranslation } from 'react-i18next';
-import logInSchema from './logInSchema';
 import TextField from '../FormFields/TextField';
-import scss from './styles/log-in-form.module.scss';
 import { useLogin } from '../../graphql/login/useLogin';
 import { TLogInFormValues } from '../../types/formValues';
 import Loading from '../Loading';
+import scss from './styles/log-in-form.module.scss';
+import logInSchema from './logInSchema';
 
 const LogInForm: FunctionComponent = () => {
     const { t } = useTranslation();

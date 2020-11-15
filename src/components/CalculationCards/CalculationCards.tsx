@@ -1,11 +1,11 @@
 import React, { Fragment, FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
+import useCalculationCards from '../../graphql/calculationCards/useCalculationCards';
+import { ECardsColumnType } from '../../types/enums';
+import Loading from '../Loading';
 import ColumnHead from './ColumnHead';
 import Column from './Column/Column';
-import { ECardsColumnType } from '../../types/enums';
 import scss from './styles/calculationCards.module.scss';
-import useCalculationCards from '../../graphql/calculationCards/useCalculationCards';
-import Loading from '../Loading';
 
 const CalculationCards: FunctionComponent = () => {
     const { t } = useTranslation();

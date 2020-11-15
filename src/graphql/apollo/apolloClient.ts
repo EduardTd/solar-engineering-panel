@@ -1,6 +1,6 @@
 import { ApolloClient } from '@apollo/client';
-import { cache } from './cache';
 import { ELocalStorage } from '../../types/enums';
+import { cache } from './cache';
 
 const apolloClient = new ApolloClient({
     cache,

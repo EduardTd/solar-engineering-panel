@@ -30,7 +30,7 @@
     .cardSelection {
         margin-right: -$mobile-layout-space;
         max-width: calc(100vw - 1px - #{$mobile-layout-space});
-        overflow: hidden
+        overflow: hidden;
     }
 
     .columnsWrapper {

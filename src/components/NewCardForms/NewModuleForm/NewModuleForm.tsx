@@ -3,11 +3,11 @@ import { Form, Formik } from 'formik';
 import { ModalContext } from '../../../context/ModalContext';
 import { TAddNewModule } from '../../../types/formValues';
 import { ECardType, ELocalStorage } from '../../../types/enums';
+import useCard from '../../../graphql/calculationCards/useCard';
 import moduleCardSchema from './moduleCardSchema';
 import LeftColumn from './LeftColumn';
 import RightColumn from './RightColumn';
 import scss from './styles/newModuleForm.module.scss';
-import useCard from '../../../graphql/calculationCards/useCard';
 
 const NewModuleForm: FunctionComponent = () => {
     const { closeModal } = useContext(ModalContext);

@@ -1,9 +1,9 @@
 import { useQuery } from '@apollo/client';
-import { IS_LOGGED_IN, IS_TOKEN_SAME } from './query';
 import { useState } from 'react';
 import { setIsLoggedInVar } from '../apollo/cache';
 import { ELocalStorage } from '../../types/enums';
 import { IIsLoggedIn, TUseIsLoggedIn } from '../../types/loginTypes';
+import { IS_LOGGED_IN, IS_TOKEN_SAME } from './query';
 
 const useIsLoggedIn: TUseIsLoggedIn = () => {
     const [isLoaded, setLoaded] = useState(false);

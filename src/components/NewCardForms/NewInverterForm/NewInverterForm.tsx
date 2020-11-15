@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useContext } from 'react';
 import { Formik, Form } from 'formik';
-import { ModalContext } from '../../../context/ModalContext';
 import { useTranslation } from 'react-i18next';
+import { ModalContext } from '../../../context/ModalContext';
 import scss from './styles/newInverterForm.module.scss';
 
 const NewInverterForm: FunctionComponent = () => {

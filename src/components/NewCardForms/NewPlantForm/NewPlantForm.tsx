@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useContext } from 'react';
 import { Form, Formik } from 'formik';
-import { ModalContext } from '../../../context/ModalContext';
 import { useTranslation } from 'react-i18next';
+import { ModalContext } from '../../../context/ModalContext';
 import scss from './styles/newPlantForm.module.scss';
 
 const NewPlantForm: FunctionComponent = () => {

@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
+import { useTranslation } from 'react-i18next';
 import PanelTemplate from '../../components/PanelTemplate';
 import { CalculationsTable, ProjectTable, SimulationTable } from '../../components/SummaryTables';
-import { useTranslation } from 'react-i18next';
 
 const Summary: FunctionComponent = () => {
     const { t } = useTranslation();

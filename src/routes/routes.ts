@@ -11,7 +11,7 @@ const routes = {
 export const getRoute = (
     path: string,
     params?: { [key: string]: string | number },
-    routesConfig: any = routes,
+    routesConfig: any = routes
 ) =>
     path.split('.').reduce((routeBranch: any, pathItem: string) => {
         if (routeBranch && routeBranch[pathItem]) {
@@ -26,6 +26,7 @@ export const getRoute = (
                     return replaced.replace(`:${key}`, String(value));
                 }, route);
             }
+
             return routeBranch[pathItem];
         }
     }, routesConfig);

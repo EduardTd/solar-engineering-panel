@@ -1,11 +1,11 @@
+import { ApolloCache } from '@apollo/client';
 import { TCalculationData, TCardData } from '../../types/cardsTypes';
 import { ECardsColumnType, ECardType } from '../../types/enums';
-import { ApolloCache } from '@apollo/client';
 
 export const cardStatusHandler = (
     calculationCards: TCalculationData,
     columnName: string,
-    cardIndex: number,
+    cardIndex: number
 ): TCalculationData => {
     const cardStatus = calculationCards[columnName][cardIndex].status;
 
@@ -29,7 +29,7 @@ export const cardStatusHandler = (
 export const addNewCardToCache = (
     cache: ApolloCache<any>,
     cardData: TCardData,
-    columnType: ECardsColumnType,
+    columnType: ECardsColumnType
 ) => {
     cache.modify({
         fields: {

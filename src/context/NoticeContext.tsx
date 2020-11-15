@@ -42,7 +42,7 @@ export const NoticeContextProvider: FunctionComponent<TProvider> = ({
         setIsClose(isClose);
         setMessage(initialNoticeValues.message);
         setMessageType(initialNoticeValues.messageType);
-    }, []);
+    }, [isClose]);
 
     return (
         <NoticeContext.Provider

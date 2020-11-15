@@ -11,7 +11,7 @@ describe('routes#getRoute', () => {
 
     it('should return a nested route', () => {
         expect(getRoute('plantsAndElectrical', undefined, routes)).toEqual(
-            '/plants-and-electrical',
+            '/plants-and-electrical'
         );
     });
 

@@ -2,8 +2,8 @@ import React, { FunctionComponent, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ModalContext } from '../../../context/ModalContext';
 import { ECardsColumnType } from '../../../types/enums';
-import scss from './styles/columnHead.module.scss';
 import useCalculationCards from '../../../graphql/calculationCards/useCalculationCards';
+import scss from './styles/columnHead.module.scss';
 
 type TColumnHead = {
     buttonText: string;

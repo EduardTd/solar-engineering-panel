@@ -1,11 +1,11 @@
 import { useMutation } from '@apollo/client';
-import { LOGIN_MUTATION } from './query';
-import { TLogInFormValues } from '../../types/formValues';
 import { useCallback, useContext } from 'react';
+import { TLogInFormValues } from '../../types/formValues';
 import { NoticeContext } from '../../context/NoticeContext';
 import { ELocalStorage, ENoticeType } from '../../types/enums';
 import { setIsLoggedInVar } from '../apollo/cache';
 import * as types from '../../types/loginTypes';
+import { LOGIN_MUTATION } from './query';
 
 export const useLogin: types.TUseLogin = () => {
     const { provideNoticeData } = useContext(NoticeContext);
