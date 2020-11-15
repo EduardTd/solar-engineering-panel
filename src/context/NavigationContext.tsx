@@ -24,7 +24,7 @@ export const NavigationContextProvider: FunctionComponent<TProvider> = ({ childr
     const openedClass = 'overflow-hidden';
 
     listen(() => {
-        setNavState(!navState);
+        setNavState(false);
         removeBodyClass(openedClass);
     });
 

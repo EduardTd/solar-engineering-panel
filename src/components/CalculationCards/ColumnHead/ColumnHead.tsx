@@ -1,9 +1,9 @@
 import React, { FunctionComponent, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ModalContext } from '../../../context/ModalContext';
-import { CardsContext } from '../../../context/CardsContext';
 import { ECardsColumnType } from '../../../types/enums';
 import scss from './styles/columnHead.module.scss';
+import useCalculationCards from '../../../graphql/calculationCards/useCalculationCards';
 
 type TColumnHead = {
     buttonText: string;
@@ -14,8 +14,9 @@ type TColumnHead = {
 const ColumnHead: FunctionComponent<TColumnHead> = ({ buttonText, headTitle, headType }) => {
     const { t } = useTranslation();
     const { openModal } = useContext(ModalContext);
-    const { getActiveQuantity } = useContext(CardsContext);
+    const { getActiveQuantity } = useCalculationCards();
     const activeQuantity = getActiveQuantity(headType);
+
     const openModalHandler = () => {
         openModal(headType);
     };

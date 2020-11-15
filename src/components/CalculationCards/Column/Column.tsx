@@ -1,15 +1,19 @@
-import React, { FunctionComponent, Fragment, useContext } from 'react';
+import React, { FunctionComponent, Fragment } from 'react';
 import { ECardsColumnType } from '../../../types/enums';
-import { CardsContext } from '../../../context/CardsContext';
 import Card from '../Card';
+import { TCalculationData } from '../../../types/cardsTypes';
 
 type TModuleColumn = {
     columnType: ECardsColumnType;
+    calculationCards: TCalculationData | undefined | null;
 };
 
-const Column: FunctionComponent<TModuleColumn> = ({ columnType }) => {
-    const { cardsState } = useContext(CardsContext);
-    const columnData = cardsState[columnType];
+const Column: FunctionComponent<TModuleColumn> = ({ columnType, calculationCards }) => {
+    const columnData = calculationCards && calculationCards[columnType];
+
+    if (!columnData) {
+        return <Fragment />;
+    }
 
     return (
         <Fragment>

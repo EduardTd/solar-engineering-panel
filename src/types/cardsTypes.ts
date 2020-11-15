@@ -1,14 +1,32 @@
-type TCardData = {
+export type TCardData = {
     title: string;
     description: string[];
     status: string;
     additionalData: {};
 };
 
-type TCardsGroup = TCardData[];
+export type TCardsGroup = TCardData[];
 
-type TCalculationData = {
+export type TCalculationData = {
     [index: string]: TCardsGroup;
 };
 
-export type { TCardData, TCardsGroup, TCalculationData };
+export interface ICalculationCards {
+    calculationCards: TCalculationData;
+}
+
+export interface IModuleCardResponse {
+    success: boolean;
+    message: string;
+    cardData: TCardData;
+    __typename: 'ModuleCardResponse';
+}
+
+export interface IAddModuleCard {
+    addModuleCard: IModuleCardResponse;
+}
+
+export interface ICardValues {
+    userId: string;
+    cardData: TCardData;
+}

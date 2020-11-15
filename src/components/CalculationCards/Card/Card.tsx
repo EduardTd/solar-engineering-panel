@@ -1,8 +1,8 @@
-import React, { FunctionComponent, useContext } from 'react';
-import { CardsContext } from '../../../context/CardsContext';
+import React, { FunctionComponent } from 'react';
 import { TCardData } from '../../../types/cardsTypes';
 import scss from './style/card.module.scss';
 import { ECardType } from '../../../types/enums';
+import useCard from '../../../graphql/calculationCards/useCard';
 
 type TCard = {
     cardData: TCardData;
@@ -11,14 +11,14 @@ type TCard = {
 };
 
 const Card: FunctionComponent<TCard> = ({ cardData, columnName, cardIndex }) => {
-    const { changeStatus } = useContext(CardsContext);
-
-    const changeStatusHandler = () => {
-        changeStatus(columnName, cardIndex);
-    };
+    const { changeCardStatus } = useCard();
     let statusClass = scss.inactive;
     if (cardData.status === ECardType.Active) statusClass = scss.active;
     if (cardData.status === ECardType.Disabled) statusClass = scss.disabled;
+
+    const changeStatusHandler = () => {
+        changeCardStatus(columnName, cardIndex);
+    };
 
     return (
         <div className={`${scss.card} ${statusClass}`} onClick={changeStatusHandler}>

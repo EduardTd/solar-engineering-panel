@@ -2,7 +2,7 @@
 
 .loadingWrapper {
     align-items: center;
-    background-color: rgba(0, 0, 0, .3);
+    background-color: rgba(255, 255, 255, .6);
     bottom: 0;
     display: flex;
     justify-content: center;
@@ -34,7 +34,7 @@
 
 .loaderDot:before {
     animation: loader-dot-before-frame 2.0s infinite ease-in-out both;
-    background-color: $color-white;
+    background-color: $color-green-eden;
     border-radius: 100%;
     content: '';
     display: block;
