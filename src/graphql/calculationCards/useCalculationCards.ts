@@ -1,16 +1,10 @@
 import { useQuery } from '@apollo/client';
 import { useCallback } from 'react';
 import { ECardsColumnType, ECardType, ELocalStorage } from '../../types/enums';
-import { ICalculationCards, TCalculationData, TCardData } from '../../types/cardsTypes';
+import { ICalculationCards, TCardData } from '../../types/cardsTypes';
 import { CALCULATION_CARDS } from './query';
 
-type TUseCalculationCards = {
-    loading: boolean;
-    calculationCards: TCalculationData | undefined;
-    getActiveQuantity: (argument: ECardsColumnType) => number;
-};
-
-const useCalculationCards = (): TUseCalculationCards => {
+const useCalculationCards = () => {
     const { loading, data } = useQuery<ICalculationCards>(CALCULATION_CARDS, {
         variables: {
             userId: localStorage.getItem(ELocalStorage.UserId),

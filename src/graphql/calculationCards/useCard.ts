@@ -6,12 +6,7 @@ import { NoticeContext } from '../../context/NoticeContext';
 import { addNewCardToCache, cardStatusHandler } from './utils';
 import { ADD_MODULE_CARD } from './query';
 
-type TUseCard = {
-    changeCardStatus: (columnName: string, cardIndex: number) => void;
-    addModuleCard: (argument: { variables: ICardValues }) => void;
-};
-
-const useCard = (): TUseCard => {
+const useCard = () => {
     const client = useApolloClient();
     const { provideNoticeData } = useContext(NoticeContext);
     const [addModuleCard] = useMutation<IAddModuleCard, ICardValues>(ADD_MODULE_CARD, {
