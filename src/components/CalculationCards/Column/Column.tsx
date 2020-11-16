@@ -9,7 +9,7 @@ type TModuleColumn = {
 };
 
 const Column: FunctionComponent<TModuleColumn> = ({ columnType, calculationCards }) => {
-    const columnData = calculationCards && calculationCards[columnType];
+    const columnData = calculationCards && calculationCards[`${columnType}`];
 
     if (!columnData) {
         return <Fragment />;

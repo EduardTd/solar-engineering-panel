@@ -18,7 +18,7 @@ const useCalculationCards = () => {
                 return 0;
             }
 
-            const quantity = calculationCards[type].filter((card: TCardData) => {
+            const quantity = calculationCards[`${type}`].filter((card: TCardData) => {
                 return card.status === ECardType.Active;
             });
 

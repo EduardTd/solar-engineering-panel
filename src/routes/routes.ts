@@ -14,8 +14,8 @@ export const getRoute = (
     routesConfig: any = routes
 ) =>
     path.split('.').reduce((routeBranch: any, pathItem: string) => {
-        if (routeBranch && routeBranch[pathItem]) {
-            const route = routeBranch[pathItem];
+        if (routeBranch && routeBranch[`${pathItem}`]) {
+            const route = routeBranch[`${pathItem}`];
 
             if (typeof route === 'string') {
                 if (!params || typeof params === 'undefined') {
@@ -27,7 +27,7 @@ export const getRoute = (
                 }, route);
             }
 
-            return routeBranch[pathItem];
+            return routeBranch[`${pathItem}`];
         }
     }, routesConfig);
 
