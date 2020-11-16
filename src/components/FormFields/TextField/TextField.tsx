@@ -25,7 +25,7 @@ const TextField: FunctionComponent<TTextField> = ({
     unit,
     disabled,
 }) => {
-    const errorClass = errors[fieldName] && touched[fieldName] ? scss.error : '';
+    const errorClass = errors[`${fieldName}`] && touched[`${fieldName}`] ? scss.error : '';
     const disabledClass = disabled ? scss.disabled : '';
     const textFieldClass = `${scss.textField} ${errorClass} ${disabledClass}`;
 

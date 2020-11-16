@@ -13,7 +13,7 @@ const GlobalNotice: FunctionComponent = () => {
 
             closeNotice();
         }, 5000);
-    }, [isClose]);
+    }, [isClose, closeNotice]);
 
     return (
         <div className={`global-notice ${messageType} ${isClose ? 'hidden' : ''} `}>

@@ -26,14 +26,17 @@ export const useLogin: types.TUseLogin = () => {
         },
     });
 
-    const onSubmit = useCallback(({ email, password }: TLogInFormValues) => {
-        login({
-            variables: {
-                email,
-                password,
-            },
-        });
-    }, []);
+    const onSubmit = useCallback(
+        ({ email, password }: TLogInFormValues) => {
+            login({
+                variables: {
+                    email,
+                    password,
+                },
+            });
+        },
+        [login]
+    );
 
     return { onSubmit, loading };
 };

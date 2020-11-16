@@ -7,7 +7,7 @@ export const cardStatusHandler = (
     columnName: string,
     cardIndex: number
 ): TCalculationData => {
-    const cardStatus = calculationCards[columnName][cardIndex].status;
+    const cardStatus = calculationCards[`${columnName}`][cardIndex].status;
 
     if (cardStatus === ECardType.Disabled) {
         return calculationCards;
@@ -16,12 +16,12 @@ export const cardStatusHandler = (
     const newData = JSON.parse(JSON.stringify(calculationCards));
 
     if (cardStatus === ECardType.Active) {
-        newData[columnName][cardIndex].status = ECardType.Inactive;
+        newData[`${columnName}`][`${cardIndex}`].status = ECardType.Inactive;
 
         return newData;
     }
 
-    newData[columnName][cardIndex].status = ECardType.Active;
+    newData[`${columnName}`][`${cardIndex}`].status = ECardType.Active;
 
     return newData;
 };
@@ -36,7 +36,7 @@ export const addNewCardToCache = (
             calculationCards(calculationCards) {
                 const newData = JSON.parse(JSON.stringify(calculationCards));
 
-                newData[columnType].unshift(cardData);
+                newData[`${columnType}`].unshift(cardData);
 
                 return newData;
             },

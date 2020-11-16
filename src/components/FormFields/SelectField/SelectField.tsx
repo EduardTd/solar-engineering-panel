@@ -24,7 +24,7 @@ const SelectField: FunctionComponent<TTextField> = ({
     disabled,
     onChangeHandler,
 }) => {
-    const errorClass = `${errors[fieldName] && touched[fieldName] ? scss.error : ''}`;
+    const errorClass = `${errors[`${fieldName}`] && touched[`${fieldName}`] ? scss.error : ''}`;
     const disabledClass = `${disabled ? scss.disabled : ''}`;
     const selectFieldClass = `${scss.selectField} ${errorClass} ${disabledClass}`;
 

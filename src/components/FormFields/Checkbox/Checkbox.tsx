@@ -21,7 +21,7 @@ const Checkbox: FunctionComponent<TTextField> = ({
         <div
             className={`
                 checkbox-field 
-                ${errors[checkboxName] && touched[checkboxName] ? 'error' : ''}
+                ${errors[`${checkboxName}`] && touched[`${checkboxName}`] ? 'error' : ''}
             `}
         >
             <Field
