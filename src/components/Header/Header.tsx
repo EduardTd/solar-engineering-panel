@@ -1,24 +1,15 @@
-import React, { FunctionComponent, useCallback } from 'react';
+import React, { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useApolloClient } from '@apollo/client';
 import { ReactComponent as HamburgerIcon } from '../../assets/images/icons/hamburger-icon.svg';
 import { ReactComponent as HomeIcon } from '../../assets/images/icons/home-icon.svg';
 import ToggleNavigation from '../ToggleNavigation';
 import routes from '../../routes/routes';
-import { setIsLoggedInVar } from '../../graphql/apollo/cache';
 import scss from './styles/header.module.scss';
+import UserSection from './UserSection';
 
 const Header: FunctionComponent = () => {
     const { t } = useTranslation();
-    const { cache } = useApolloClient();
-
-    const handleLogOut = useCallback(() => {
-        cache.evict({ fieldName: 'getUser' });
-        cache.gc();
-        localStorage.clear();
-        setIsLoggedInVar(false);
-    }, []);
 
     return (
         <header className={scss.header}>
@@ -33,12 +24,7 @@ const Header: FunctionComponent = () => {
                 <div className={scss.headerTitle}>
                     <span>{t('Kaunas park')}</span>
                 </div>
-                <div className={scss.userBlock} title="Tester Testman">
-                    <span className={scss.fullName}>Tester Testman</span>
-                    <span className={scss.userIcon} onClick={handleLogOut}>
-                        A
-                    </span>
-                </div>
+                <UserSection />
             </div>
         </header>
     );

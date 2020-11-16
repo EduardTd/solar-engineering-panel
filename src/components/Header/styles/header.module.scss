@@ -49,28 +49,6 @@
     text-align: center;
 }
 
-.userBlock {
-    margin-left: auto;
-    padding-left: 16px;
-}
-
-.userIcon {
-    @include font-size(12);
-    align-items: center;
-    background-color: $color-white;
-    border-radius: 50%;
-    color: $color-gray-nero_dark;
-    display: inline-flex;
-    height: 24px;
-    justify-content: center;
-    text-transform: capitalize;
-    width: 24px;
-
-    &:hover {
-        cursor: pointer;
-    }
-}
-
 //
 //  Mobile
 //  _____________________________________________
@@ -93,10 +71,6 @@
     .homeLinkText {
         display: none;
     }
-
-    .fullName {
-        display: none;
-    }
 }
 
 //
@@ -106,10 +80,5 @@
     .container {
         padding-left: $desktop-layout-space;
         padding-right: $desktop-layout-space;
-    }
-
-    .fullName {
-        display: inline-block;
-        padding-right: 16px;
     }
 }

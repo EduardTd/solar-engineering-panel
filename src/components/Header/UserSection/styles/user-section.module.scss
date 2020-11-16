@@ -1,0 +1,158 @@
+@import '../../../../assets/styles/base';
+
+.userBlock {
+    margin-left: auto;
+    padding-left: 16px;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    -o-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+
+    &:hover {
+        cursor: pointer;
+
+        .userDropdown {
+            max-height: 999px;
+            overflow: visible;
+        }
+    }
+}
+
+.userIcon {
+    @include font-size(12);
+    align-items: center;
+    background-color: $color-white;
+    border-radius: 50%;
+    color: $color-gray-nero_dark;
+    display: inline-flex;
+    height: 24px;
+    justify-content: center;
+    text-transform: capitalize;
+    width: 24px;
+}
+
+.userDropdown {
+    bottom: 0;
+    color: $color-gray-night_rider;
+    padding-top: 14px;
+    position: absolute;
+    right: 0;
+    transform: translateY(100%);
+    z-index: 50;
+}
+
+.dropdownWrapper {
+    background-color: $color-white-snow;
+    border-radius: 4px;
+    filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.45));
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.changeLanguage {
+    &:hover {
+        .languageHead:after {
+            transform: translateY(-21%) rotate(225deg);
+        }
+
+        .languageList {
+            max-height: 999px;
+            overflow: visible;
+        }
+    }
+}
+
+.languageHead,
+.languageItem > span,
+.logout {
+    &:hover {
+        background-color: $color-green-tranquil;
+    }
+}
+
+.languageHead {
+    position: relative;
+    white-space: nowrap;
+
+    > span {
+        padding-right: 16px;
+    }
+
+    &:after {
+        border-bottom: 1px solid $color-gray;
+        border-right: 1px solid $color-gray;
+        content: '';
+        display: block;
+        height: 8px;
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-78%) rotate(45deg);
+        transition: all 0.3s linear;
+        width: 8px;
+    }
+}
+
+.userDropdown,
+.languageList {
+    max-height: 0;
+    overflow: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    transition: all 0.3s ease-in-out;
+
+    &::-webkit-scrollbar {
+        background: transparent;
+        width: 0;
+    }
+}
+
+.languageItem {
+    margin-top: 4px;
+
+    &:last-child {
+        padding-bottom: 8px;
+    }
+
+    > span {
+        display: block;
+    }
+}
+
+.languageHead,
+.logout {
+    font-weight: $font-weight__heavier;
+    padding: 8px 16px;
+}
+
+.selectedLanguage {
+    color: $active-color;
+    cursor: default;
+    font-weight: $font-weight__bold;
+
+    &:hover {
+        > span {
+            background-color: transparent;
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+@include media-width('max', $screen_m) {
+    .fullName {
+        display: none;
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+@include media-width('min', $screen_m) {
+    .fullName {
+        display: inline-block;
+        padding-right: 16px;
+    }
+}
