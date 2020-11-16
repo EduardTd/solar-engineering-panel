@@ -16,7 +16,7 @@ const LogIn: FunctionComponent = () => {
             <div className={scss.logInBlock}>
                 <div className={scss.headBlock}>
                     <Logo className={scss.headLogo} />
-                    <h2>Log in</h2>
+                    <h2>{t('Log in')}</h2>
                     <span className={scss.headText}>{t('Enter your details below')}</span>
                 </div>
                 <LogInForm />
