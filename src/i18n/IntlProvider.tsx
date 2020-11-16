@@ -3,9 +3,7 @@ import i18next from 'i18next';
 import { I18nextProvider } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getLocale } from '../store/app/selectors';
-
-import deDE from './locales/de_DE/translation.json';
-import enUS from './locales/en_US/translation.json';
+import { languages, resources } from './languages';
 
 i18next.init({
     react: {
@@ -15,10 +13,7 @@ i18next.init({
     fallbackLng: 'en_US',
     fallbackNS: ['translation'],
     keySeparator: false,
-    resources: {
-        de_DE: { translation: deDE },
-        en_US: { translation: enUS },
-    },
+    resources,
     parseMissingKeyHandler: (missing: any) => {
         if (process.env.NODE_ENV === 'development') {
             console.warn('MISSING TRANSLATION:', missing);
@@ -27,7 +22,7 @@ i18next.init({
     },
 });
 
-i18next.languages = ['de_DE', 'en_US'];
+i18next.languages = languages.map((language) => language.locale);
 
 const I18N: FunctionComponent<{ children: ReactNode }> = ({ children }) => {
     const locale = useSelector(getLocale);
