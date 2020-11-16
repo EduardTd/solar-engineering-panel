@@ -5,7 +5,7 @@ import { ELocalStorage } from '../../types/enums';
 import { IIsLoggedIn, TUseIsLoggedIn } from '../../types/loginTypes';
 import { IS_LOGGED_IN, IS_TOKEN_SAME } from './query';
 
-const useIsLoggedIn: TUseIsLoggedIn = () => {
+const useIsLoggedIn = () => {
     const [isLoaded, setLoaded] = useState(false);
     const { data } = useQuery<IIsLoggedIn>(IS_LOGGED_IN);
     const isLoggedIn = data?.isLoggedIn;

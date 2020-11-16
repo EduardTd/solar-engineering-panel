@@ -1,8 +1,7 @@
 import React, { FunctionComponent, ReactNode, useEffect } from 'react';
 import i18next from 'i18next';
 import { I18nextProvider } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { getLocale } from '../store/app/selectors';
+import useLocale from '../graphql/locale/useLocale';
 import { languages, resources } from './languages';
 
 i18next.init({
@@ -25,7 +24,8 @@ i18next.init({
 i18next.languages = languages.map((language) => language.locale);
 
 const I18N: FunctionComponent<{ children: ReactNode }> = ({ children }) => {
-    const locale = useSelector(getLocale);
+    const { locale } = useLocale();
+
     useEffect(() => {
         i18next.changeLanguage(locale);
     }, [locale]);

@@ -21,4 +21,5 @@ export enum ECardType {
 export enum ELocalStorage {
     Token = 'token',
     UserId = 'userId',
+    Locale = 'locale',
 }

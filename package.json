@@ -37,7 +37,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write src/**/*.ts{,x} && prettier --write src/**/*.scss",
-    "lint": "tsc --noEmit && eslint src/**/*.ts{,x} && stylelint src/**/*.scss"
+    "lint:ts": "tsc --noEmit && eslint src/**/*.ts{,x}",
+    "lint:scss": "stylelint src/**/*.scss"
   },
   "eslintConfig": {
     "extends": [
