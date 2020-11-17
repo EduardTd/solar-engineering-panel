@@ -39,7 +39,7 @@ export const NoticeContextProvider: FunctionComponent<TProvider> = ({
     };
 
     const closeNotice = useCallback(() => {
-        setIsClose(isClose);
+        setIsClose(true);
         setMessage(initialNoticeValues.message);
         setMessageType(initialNoticeValues.messageType);
     }, [isClose]);

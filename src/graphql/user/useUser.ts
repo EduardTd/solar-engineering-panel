@@ -1,16 +1,21 @@
-import { useQuery } from '@apollo/client';
+import { useLazyQuery, useQuery } from '@apollo/client';
+import { useEffect } from 'react';
 import { ELocalStorage } from '../../types/enums';
 import { IGetUser } from '../../types/userTypes';
+import { callQueryOnMount } from '../utils';
 import { USER_DATA } from './query';
 
 const useUser = () => {
-    const { data } = useQuery<IGetUser>(USER_DATA, {
+    const [getUser, { data }] = useLazyQuery<IGetUser>(USER_DATA, {
         variables: {
             userId: localStorage.getItem(ELocalStorage.UserId),
         },
     });
+    useEffect(callQueryOnMount(getUser), [getUser]);
 
-    return { userData: data?.getUser };
+    const userData = data ? data.getUser : null;
+
+    return { userData };
 };
 
 export default useUser;

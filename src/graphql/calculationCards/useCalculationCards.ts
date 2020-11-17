@@ -1,17 +1,22 @@
-import { useQuery } from '@apollo/client';
-import { useCallback } from 'react';
+import { useLazyQuery } from '@apollo/client';
+import { useCallback, useEffect } from 'react';
 import { ECardsColumnType, ECardType, ELocalStorage } from '../../types/enums';
 import { ICalculationCards, TCardData } from '../../types/cardsTypes';
+import { callQueryOnMount } from '../utils';
 import { CALCULATION_CARDS } from './query';
 
 const useCalculationCards = () => {
-    const { loading, data } = useQuery<ICalculationCards>(CALCULATION_CARDS, {
-        variables: {
-            userId: localStorage.getItem(ELocalStorage.UserId),
-        },
-    });
-    const calculationCards = data?.calculationCards;
+    const [getCalculationCards, { loading, data }] = useLazyQuery<ICalculationCards>(
+        CALCULATION_CARDS,
+        {
+            variables: {
+                userId: localStorage.getItem(ELocalStorage.UserId),
+            },
+        }
+    );
+    useEffect(callQueryOnMount(getCalculationCards), [getCalculationCards]);
 
+    const calculationCards = data?.calculationCards;
     const getActiveQuantity = useCallback(
         (type: ECardsColumnType) => {
             if (!calculationCards) {
