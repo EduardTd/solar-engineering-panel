@@ -1,11 +1,14 @@
-import { useQuery } from '@apollo/client';
-import { useCallback } from 'react';
+import { useLazyQuery } from '@apollo/client';
+import { useCallback, useEffect } from 'react';
 import { setLocaleVar } from '../apollo/cache';
 import { ELocalStorage } from '../../types/enums';
+import { callQueryOnMount } from '../utils';
 import { LOCALE } from './query';
 
 const useLocale = () => {
-    const { data } = useQuery(LOCALE);
+    const [getLocale, { data }] = useLazyQuery(LOCALE);
+    useEffect(callQueryOnMount(getLocale), [getLocale]);
+
     localStorage.setItem(ELocalStorage.Locale, data?.locale);
 
     const changeLocale = useCallback((locale: string) => {

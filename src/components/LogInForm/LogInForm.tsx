@@ -12,8 +12,8 @@ const LogInForm: FunctionComponent = () => {
     const { t } = useTranslation();
     const { onSubmit, loading } = useLogin();
     const initialValues: TLogInFormValues = {
-        email: '',
-        password: '',
+        email: 'test@test.com',
+        password: 'test',
     };
 
     return (

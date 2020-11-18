@@ -4,7 +4,7 @@ import { ELocalStorage } from '../../types/enums';
 import { cache } from './cache';
 
 const httpLink = createHttpLink({
-    uri: 'http://localhost:8500/',
+    uri: 'https://mb6xi.sse.codesandbox.io/',
 });
 
 const authLink = setContext((_, { headers }) => {
